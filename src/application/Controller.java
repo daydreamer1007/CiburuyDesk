@@ -1,7 +1,11 @@
 package application;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+
+import java.io.IOException;
 
 public class Controller {
     @FXML
@@ -22,11 +26,13 @@ public class Controller {
     @FXML
     Pane about;
 
+    @FXML
+    BorderPane content;
 
     @FXML
     public void welcomeClicked(){
         welcome.setStyle("-fx-background-color: FFD700");
-        welcome.setDisable(false);
+        welcome.setDisable(true);
         galeri.setStyle("-fx-background-color: FFA500");
         galeri.setDisable(false);
         naskah.setStyle("-fx-background-color: FFA500");
@@ -39,6 +45,14 @@ public class Controller {
         about.setDisable(false);
 
         //Function that will change the pane's contents go below here
+        content.getChildren().clear();
+        try {
+            content.getChildren().add(FXMLLoader.load(getClass().getResource("welcome.fxml")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     @FXML
@@ -57,6 +71,8 @@ public class Controller {
         about.setDisable(false);
 
         //Function that will change the pane's contents go below here
+        content.getChildren().clear();
+
     }
 
     @FXML
