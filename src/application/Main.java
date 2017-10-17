@@ -10,7 +10,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("MianWindow.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("MainWindow.fxml"));
         primaryStage.setTitle("Ciburuy Desk");
         primaryStage.setScene(new Scene(root));
         primaryStage.setResizable(false);
