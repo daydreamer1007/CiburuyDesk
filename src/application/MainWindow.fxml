@@ -8,11 +8,20 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: FFD700" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
-   <children>
-      <AnchorPane prefHeight="720.0" prefWidth="300.0" style="-fx-background-color: FFA500;">
+<BorderPane focusTraversable="true" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+   <center>
+      <AnchorPane prefHeight="770.0" prefWidth="1065.0" style="-fx-background-color: FFD700">
          <children>
-             <Label layoutX="50" layoutY="9.0" text="CIBURUY DESK V2.0" textFill="WHITE">
+            <BorderPane fx:id="content" prefHeight="720.0" prefWidth="980.0">
+                <fx:include source="welcome.fxml" />
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </center>
+   <left>
+      <AnchorPane prefHeight="720.0" prefWidth="300.0" style="-fx-background-color: FFA500;" BorderPane.alignment="CENTER">
+         <children>
+             <Label layoutX="56.0" layoutY="-1.0" text="CIBURUY DESK V2.0" textFill="WHITE">
                   <font>
                       <Font name="System Bold" size="20.0" />
                   </font>
@@ -115,8 +124,5 @@
              </Pane>
          </children>
       </AnchorPane>
-      <BorderPane fx:id="content" layoutX="300" layoutY="0" prefHeight="720.0" prefWidth="980.0">
-          <fx:include source="welcome.fxml"></fx:include>
-      </BorderPane>
-   </children>
-</AnchorPane>
+   </left>
+</BorderPane>
