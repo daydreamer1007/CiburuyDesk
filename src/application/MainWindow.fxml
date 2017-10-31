@@ -19,7 +19,7 @@
              </Label>
              <Pane id="welcome" fx:id="welcome" accessibleRole="BUTTON" disable="true" layoutY="124.0" onMouseClicked="#welcomeClicked" onMouseEntered="#welcomeMouseEnterExit" onMouseExited="#welcomeMouseEnterExit" prefHeight="45.0" prefWidth="300.0" style="-fx-background-color: FFD700;">
                <children>
-                  <Label layoutX="30" layoutY="9.0" text="HALAMAN UTAMA" textFill="WHITE">
+                  <Label fx:id="welcomeText" layoutX="30" layoutY="9.0" text="HALAMAN UTAMA" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -74,7 +74,7 @@
                          <graphic>
                              <ImageView fitWidth="30" preserveRatio="true" smooth="true">
                                  <image>
-                                     <Image url="/riset.png" />
+                                     <Image url="/research.png" />
                                  </image>
                              </ImageView>
                          </graphic>
@@ -97,7 +97,23 @@
                      </Label>
                  </children>
              </Pane>
-             <Pane id="about" fx:id="about" accessibleRole="BUTTON" layoutY="349.0" onMouseClicked="#aboutClicked" onMouseEntered="#aboutMouseEnterExit" onMouseExited="#aboutMouseEnterExit" prefHeight="45.0" prefWidth="300.0" style="-fx-background-color: FFA500;">
+             <Pane id="pencarian" fx:id="pencarian" accessibleRole="BUTTON" layoutY="349.0" onMouseClicked="#pencarianClicked" onMouseEntered="#pencarianMouseEnterExit" onMouseExited="#pencarianMouseEnterExit" prefHeight="45.0" prefWidth="300.0" style="-fx-background-color: FFA500;">
+                 <children>
+                     <Label layoutX="30" layoutY="9.0" text="PENCARIAN" textFill="WHITE">
+                         <font>
+                             <Font name="System Bold" size="18.0" />
+                         </font>
+                         <graphic>
+                             <ImageView fitWidth="30" preserveRatio="true" smooth="true">
+                                 <image>
+                                     <Image url="/search.png" />
+                                 </image>
+                             </ImageView>
+                         </graphic>
+                     </Label>
+                 </children>
+             </Pane>
+             <Pane id="about" fx:id="about" accessibleRole="BUTTON" layoutY="394.0" onMouseClicked="#aboutClicked" onMouseEntered="#aboutMouseEnterExit" onMouseExited="#aboutMouseEnterExit" prefHeight="45.0" prefWidth="300.0" style="-fx-background-color: FFA500;">
                  <children>
                      <Label layoutX="30" layoutY="9.0" text="TENTANG KAMI" textFill="WHITE">
                          <font>

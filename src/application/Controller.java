@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
-
 import java.io.IOException;
 
 public class Controller {
@@ -27,6 +26,9 @@ public class Controller {
     Pane about;
 
     @FXML
+    Pane pencarian;
+
+    @FXML
     BorderPane content;
 
     @FXML
@@ -41,6 +43,8 @@ public class Controller {
         penelitian.setDisable(false);
         permainan.setStyle("-fx-background-color: FFA500");
         permainan.setDisable(false);
+        pencarian.setStyle("-fx-background-color: FFA500");
+        pencarian.setDisable(false);
         about.setStyle("-fx-background-color: FFA500");
         about.setDisable(false);
 
@@ -51,8 +55,6 @@ public class Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 
     @FXML
@@ -67,12 +69,18 @@ public class Controller {
         penelitian.setDisable(false);
         permainan.setStyle("-fx-background-color: FFA500");
         permainan.setDisable(false);
+        pencarian.setStyle("-fx-background-color: FFA500");
+        pencarian.setDisable(false);
         about.setStyle("-fx-background-color: FFA500");
         about.setDisable(false);
 
         //Function that will change the pane's contents go below here
         content.getChildren().clear();
-
+        try{
+            content.getChildren().add(FXMLLoader.load(getClass().getResource("Galeri.fxml")));
+        }catch(IOException e){
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -87,6 +95,8 @@ public class Controller {
         penelitian.setDisable(false);
         permainan.setStyle("-fx-background-color: FFA500");
         permainan.setDisable(false);
+        pencarian.setStyle("-fx-background-color: FFA500");
+        pencarian.setDisable(false);
         about.setStyle("-fx-background-color: FFA500");
         about.setDisable(false);
 
@@ -105,6 +115,8 @@ public class Controller {
         penelitian.setDisable(true);
         permainan.setStyle("-fx-background-color: FFA500");
         permainan.setDisable(false);
+        pencarian.setStyle("-fx-background-color: FFA500");
+        pencarian.setDisable(false);
         about.setStyle("-fx-background-color: FFA500");
         about.setDisable(false);
 
@@ -123,6 +135,28 @@ public class Controller {
         penelitian.setDisable(false);
         permainan.setStyle("-fx-background-color: FFD700");
         permainan.setDisable(true);
+        pencarian.setStyle("-fx-background-color: FFA500");
+        pencarian.setDisable(false);
+        about.setStyle("-fx-background-color: FFA500");
+        about.setDisable(false);
+
+        //Function that will change the pane's contents go below here
+    }
+
+    @FXML
+    public void pencarianClicked(){
+        welcome.setStyle("-fx-background-color: FFA500");
+        welcome.setDisable(false);
+        galeri.setStyle("-fx-background-color: FFA500");
+        galeri.setDisable(false);
+        naskah.setStyle("-fx-background-color: FFA500");
+        naskah.setDisable(false);
+        penelitian.setStyle("-fx-background-color: FFA500");
+        penelitian.setDisable(false);
+        permainan.setStyle("-fx-background-color: FFA500");
+        permainan.setDisable(false);
+        pencarian.setStyle("-fx-background-color: FFD700");
+        pencarian.setDisable(true);
         about.setStyle("-fx-background-color: FFA500");
         about.setDisable(false);
 
@@ -141,6 +175,8 @@ public class Controller {
         penelitian.setDisable(false);
         permainan.setStyle("-fx-background-color: FFA500");
         permainan.setDisable(false);
+        pencarian.setStyle("-fx-background-color: FFA500");
+        pencarian.setDisable(false);
         about.setStyle("-fx-background-color: FFD700");
         about.setDisable(true);
 
@@ -202,6 +238,17 @@ public class Controller {
                 permainan.setStyle("-fx-background-color: FFD700");
             } else {
                 permainan.setStyle("-fx-background-color: FFA500");
+            }
+        }
+    }
+
+    @FXML
+    public void pencarianMouseEnterExit(){
+        if(!pencarian.isDisabled()) {
+            if (pencarian.getStyle().contains("FFA500")) {
+                pencarian.setStyle("-fx-background-color: FFD700");
+            } else {
+                pencarian.setStyle("-fx-background-color: FFA500");
             }
         }
     }
