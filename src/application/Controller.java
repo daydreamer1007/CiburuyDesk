@@ -2,11 +2,22 @@ package application;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import java.io.IOException;
 
 public class Controller {
+    @FXML
+    AnchorPane mainPane;
+
+    @FXML
+    AnchorPane sidePane;
+
+    @FXML
+    Label titleLabel;
+
     @FXML
     Pane welcome;
 
@@ -29,7 +40,15 @@ public class Controller {
     Pane pencarian;
 
     @FXML
-    BorderPane content;
+    public BorderPane content;
+
+    @FXML
+    public void initialize(){
+        AnchorPane.setRightAnchor(content, 0.0);
+        AnchorPane.setTopAnchor(content, 0.0);
+        AnchorPane.setTopAnchor(titleLabel, 10.0);
+        AnchorPane.setLeftAnchor(titleLabel,100.0);
+    }
 
     @FXML
     public void welcomeClicked(){

@@ -21,6 +21,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 public class GaleriController {
+
     @FXML
     AnchorPane galeri;
 
@@ -30,8 +31,12 @@ public class GaleriController {
         ScrollPane galeriScroll = new ScrollPane();
         TilePane tile = new TilePane();
         galeriScroll.setStyle("-fx-background-color: FFD700");
+        galeriScroll.setPrefHeight(Screen.getPrimary().getVisualBounds().getHeight()*0.8);
+        galeriScroll.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth()*0.8*0.75);
+        tile.setPrefHeight(galeriScroll.getPrefHeight());
+        tile.setPrefWidth(galeriScroll.getPrefWidth());
         tile.setPadding(new Insets(15, 15, 15, 15));
-        tile.setHgap(100);
+        tile.setVgap(20);
         tile.setPrefColumns(1);
         tile.setStyle("-fx-background-color: FFD700");
 
@@ -47,7 +52,7 @@ public class GaleriController {
         }
 
         galeriScroll.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED); // Horizontal
-        galeriScroll.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS); // Vertical scroll bar
+        galeriScroll.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED); // Vertical scroll bar
         galeriScroll.setFitToWidth(true);
         galeriScroll.setContent(tile);
         galeri.getChildren().add(galeriScroll);
@@ -62,7 +67,7 @@ public class GaleriController {
         try {
             final Image image = new Image(new FileInputStream(imageFile));
             imageView = new ImageView(image);
-            imageView.setFitWidth(950);
+            imageView.setFitWidth(Screen.getPrimary().getVisualBounds().getWidth()*0.8*0.75*0.95);
             imageView.setPreserveRatio(true);
             imageView.setSmooth(true);
             imageView.setOnMouseClicked(new EventHandler<MouseEvent>() {
