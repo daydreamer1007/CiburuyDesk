@@ -25,16 +25,16 @@ public class GaleriController {
     @FXML
     AnchorPane galeri;
 
-
     @FXML
     public void initialize(){
         ScrollPane galeriScroll = new ScrollPane();
+        galeriScroll.setId("galeriScroll");
         TilePane tile = new TilePane();
         galeriScroll.setStyle("-fx-background-color: FFD700");
         galeriScroll.setPrefHeight(Screen.getPrimary().getVisualBounds().getHeight()*0.8);
         galeriScroll.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth()*0.8*0.75);
-        tile.setPrefHeight(galeriScroll.getPrefHeight());
-        tile.setPrefWidth(galeriScroll.getPrefWidth());
+        tile.prefHeightProperty().bind(galeriScroll.prefHeightProperty());
+        tile.prefWidthProperty().bind(galeriScroll.prefWidthProperty());
         tile.setPadding(new Insets(15, 15, 15, 15));
         tile.setVgap(20);
         tile.setPrefColumns(1);
@@ -48,6 +48,7 @@ public class GaleriController {
         //System.out.println(listOfFiles.length);
         for(File file : listOfFiles){
             ImageView imageView = createImageView(file);
+            imageView.fitWidthProperty().bind(tile.prefWidthProperty().subtract(45.0));
             tile.getChildren().add(imageView);
         }
 

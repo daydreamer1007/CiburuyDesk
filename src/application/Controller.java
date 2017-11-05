@@ -1,19 +1,33 @@
 package application;
 
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+
 import java.io.IOException;
+import java.util.List;
 
 public class Controller {
     @FXML
-    AnchorPane mainPane;
+    Pane mainPane;
 
     @FXML
-    AnchorPane sidePane;
+    Pane sidePane;
+
+    @FXML
+    Pane title;
 
     @FXML
     Label titleLabel;
@@ -40,14 +54,53 @@ public class Controller {
     Pane pencarian;
 
     @FXML
-    public BorderPane content;
+    BorderPane content;
+
+    @FXML
+    Label welcomeText;
+
+    @FXML
+    Label galeriText;
 
     @FXML
     public void initialize(){
-        AnchorPane.setRightAnchor(content, 0.0);
-        AnchorPane.setTopAnchor(content, 0.0);
-        AnchorPane.setTopAnchor(titleLabel, 10.0);
-        AnchorPane.setLeftAnchor(titleLabel,100.0);
+        DoubleProperty titleX = new SimpleDoubleProperty(10.0);
+        DoubleProperty titleY = new SimpleDoubleProperty(14.4);
+
+        titleX.bind(sidePane.widthProperty().subtract(titleLabel.widthProperty()).divide(2));
+        titleY.bind(sidePane.heightProperty().divide(50));
+
+        titleLabel.layoutXProperty().bind(titleX);
+        titleLabel.layoutYProperty().bind(titleY);
+
+        sidePane.widthProperty().addListener(event -> resizeChange(sidePane.getChildren()));
+        sidePane.heightProperty().addListener(event -> resizeChange(sidePane.getChildren()));
+        welcome.widthProperty().addListener(event -> resizeChange(welcome.getChildren()));
+        welcome.heightProperty().addListener(event -> resizeChange(welcome.getChildren()));
+        galeri.widthProperty().addListener(event -> resizeChange(galeri.getChildren()));
+        galeri.heightProperty().addListener(event -> resizeChange(galeri.getChildren()));
+        naskah.widthProperty().addListener(event -> resizeChange(naskah.getChildren()));
+        naskah.heightProperty().addListener(event -> resizeChange(naskah.getChildren()));
+        penelitian.widthProperty().addListener(event -> resizeChange(penelitian.getChildren()));
+        penelitian.heightProperty().addListener(event -> resizeChange(penelitian.getChildren()));
+        permainan.widthProperty().addListener(event -> resizeChange(permainan.getChildren()));
+        permainan.heightProperty().addListener(event -> resizeChange(permainan.getChildren()));
+        pencarian.widthProperty().addListener(event -> resizeChange(pencarian.getChildren()));
+        pencarian.heightProperty().addListener(event -> resizeChange(pencarian.getChildren()));
+        about.widthProperty().addListener(event -> resizeChange(about.getChildren()));
+        about.heightProperty().addListener(event -> resizeChange(about.getChildren()));
+    }
+
+    private void resizeChange(List<Node> list){
+        Double sizeX = mainPane.getWidth();
+        Double sizeY = mainPane.getHeight();
+        Double fontSize = Math.hypot(sizeX, sizeY) / 80;
+
+        for(int i = 0; i < list.size(); i++){
+            if(list.get(i).getClass().equals(Label.class)){
+                ((Label)list.get(i)).setFont(Font.font("System", FontWeight.BOLD, fontSize));
+            }
+        }
     }
 
     @FXML
@@ -97,6 +150,8 @@ public class Controller {
         content.getChildren().clear();
         try{
             content.getChildren().add(FXMLLoader.load(getClass().getResource("Galeri.fxml")));
+            ((ScrollPane)content.lookup("#galeriScroll")).prefHeightProperty().bind(content.prefHeightProperty());
+            ((ScrollPane)content.lookup("#galeriScroll")).prefWidthProperty().bind(content.prefWidthProperty());
         }catch(IOException e){
             e.printStackTrace();
         }

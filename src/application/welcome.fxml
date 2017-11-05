@@ -9,10 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 
 <?import javafx.stage.Screen?>
-<AnchorPane prefHeight="${screen.visualBounds.height*0.8}" prefWidth="${screen.visualBounds.width*0.8}" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
-   <fx:define>
-      <Screen fx:factory="getPrimary" fx:id="screen"></Screen>
-   </fx:define>
+<AnchorPane prefHeight="720.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TextField layoutX="387.0" layoutY="242.0" prefHeight="31.0" prefWidth="207.0" promptText="Username" />
       <PasswordField layoutX="387.0" layoutY="284.0" prefHeight="31.0" prefWidth="207.0" promptText="Password" />
