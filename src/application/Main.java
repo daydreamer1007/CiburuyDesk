@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -15,6 +16,8 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root));
         primaryStage.setResizable(true);
         primaryStage.sizeToScene();
+        primaryStage.setMinHeight(Screen.getPrimary().getVisualBounds().getHeight()*0.5);
+        primaryStage.setMinWidth(Screen.getPrimary().getVisualBounds().getWidth()*0.5);
         primaryStage.show();
     }
 

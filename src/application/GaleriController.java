@@ -2,7 +2,6 @@ package application;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
@@ -45,7 +44,6 @@ public class GaleriController {
         File folder = new File(path);
         File[] listOfFiles = folder.listFiles();
 
-        //System.out.println(listOfFiles.length);
         for(File file : listOfFiles){
             ImageView imageView = createImageView(file);
             imageView.fitWidthProperty().bind(tile.prefWidthProperty().subtract(45.0));
@@ -60,10 +58,6 @@ public class GaleriController {
     }
 
     private ImageView createImageView(final File imageFile) {
-        // DEFAULT_THUMBNAIL_WIDTH is a constant you need to define
-        // The last two arguments are: preserveRatio, and use smooth (slower)
-        // resizing
-
         ImageView imageView = null;
         try {
             final Image image = new Image(new FileInputStream(imageFile));

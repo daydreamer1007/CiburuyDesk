@@ -1,21 +1,17 @@
 package application;
 
-import javafx.beans.binding.Bindings;
 import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-
 import java.io.IOException;
 import java.util.List;
 
@@ -63,6 +59,21 @@ public class Controller {
     Label galeriText;
 
     @FXML
+    Label naskahText;
+
+    @FXML
+    Label penelitianText;
+
+    @FXML
+    Label permainanText;
+
+    @FXML
+    Label pencarianText;
+
+    @FXML
+    Label aboutText;
+
+    @FXML
     public void initialize(){
         DoubleProperty titleX = new SimpleDoubleProperty(10.0);
         DoubleProperty titleY = new SimpleDoubleProperty(14.4);
@@ -89,6 +100,22 @@ public class Controller {
         pencarian.heightProperty().addListener(event -> resizeChange(pencarian.getChildren()));
         about.widthProperty().addListener(event -> resizeChange(about.getChildren()));
         about.heightProperty().addListener(event -> resizeChange(about.getChildren()));
+
+        welcomeText.fontProperty().addListener(event -> labelResize(welcomeText.getGraphic()));
+        galeriText.fontProperty().addListener(event -> labelResize(galeriText.getGraphic()));
+        naskahText.fontProperty().addListener(event -> labelResize(naskahText.getGraphic()));
+        penelitianText.fontProperty().addListener(event -> labelResize(penelitianText.getGraphic()));
+        permainanText.fontProperty().addListener(event -> labelResize(permainanText.getGraphic()));
+        pencarianText.fontProperty().addListener(event -> labelResize(pencarianText.getGraphic()));
+        aboutText.fontProperty().addListener(event -> labelResize(aboutText.getGraphic()));
+
+        try {
+            content.getChildren().add(FXMLLoader.load(getClass().getResource("welcome.fxml")));
+            ((Pane) content.lookup("#welcomePane")).prefHeightProperty().bind(content.prefHeightProperty());
+            ((Pane) content.lookup("#welcomePane")).prefWidthProperty().bind(content.prefWidthProperty());
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     private void resizeChange(List<Node> list){
@@ -101,6 +128,14 @@ public class Controller {
                 ((Label)list.get(i)).setFont(Font.font("System", FontWeight.BOLD, fontSize));
             }
         }
+    }
+
+    private void labelResize(Node graphic){
+        Double graphX = sidePane.getWidth();
+        Double graphY = sidePane.getHeight();
+        Double graphSize = Math.hypot(graphX, graphY) / 26;
+
+        ((ImageView)graphic).setFitWidth(graphSize);
     }
 
     @FXML
@@ -124,6 +159,8 @@ public class Controller {
         content.getChildren().clear();
         try {
             content.getChildren().add(FXMLLoader.load(getClass().getResource("welcome.fxml")));
+            ((Pane)content.lookup("#welcomePane")).prefHeightProperty().bind(content.prefHeightProperty());
+            ((Pane)content.lookup("#welcomePane")).prefWidthProperty().bind(content.prefWidthProperty());
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -3,7 +3,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
@@ -16,7 +15,7 @@
     <children>
       <Pane fx:id="sidePane" layoutX="0.0" layoutY="0.0" prefHeight="${mainPane.height}" prefWidth="${mainPane.width*0.25}" style="-fx-background-color: FFA500;">
          <children>
-             <Label fx:id="titleLabel" text="CIBURUY DESK V2.0" textFill="WHITE">
+             <Label id="titleLabel" fx:id="titleLabel" text="CIBURUY DESK V2.0" textFill="WHITE">
                   <font>
                       <Font name="System Bold" size="20.0"/>
                   </font>
@@ -28,7 +27,7 @@
                           <Font name="System Bold" size="18.0" />
                       </font>
                       <graphic>
-                          <ImageView fitWidth="30" preserveRatio="true" smooth="true">
+                          <ImageView fitWidth="31" preserveRatio="true" smooth="true">
                               <image>
                                   <Image url="/home.png" />
                               </image>
@@ -44,7 +43,7 @@
                              <Font name="System Bold" size="18.0" />
                          </font>
                          <graphic>
-                             <ImageView fitWidth="30" preserveRatio="true" smooth="true">
+                             <ImageView fitWidth="31" preserveRatio="true" smooth="true">
                                  <image>
                                      <Image url="/galeri.png" />
                                  </image>
@@ -55,12 +54,12 @@
              </Pane>
              <Pane id="naskah" fx:id="naskah" accessibleRole="BUTTON" layoutY="${galeri.layoutY+galeri.height}" onMouseClicked="#naskahClicked" onMouseEntered="#naskahMouseEnterExit" onMouseExited="#naskahMouseEnterExit" prefHeight="${sidePane.height*0.0626}" prefWidth="${sidePane.width}" style="-fx-background-color: FFA500;">
                  <children>
-                     <Label layoutX="30" layoutY="9.0" text="NASKAH" textFill="WHITE">
+                     <Label fx:id="naskahText" layoutX="30" layoutY="9.0" text="NASKAH" textFill="WHITE">
                          <font>
                              <Font name="System Bold" size="18.0" />
                          </font>
                          <graphic>
-                             <ImageView fitWidth="30" preserveRatio="true" smooth="true">
+                             <ImageView fitWidth="31" preserveRatio="true" smooth="true">
                                  <image>
                                      <Image url="/naskah.png" />
                                  </image>
@@ -71,12 +70,12 @@
              </Pane>
              <Pane id="penelitian" fx:id="penelitian" accessibleRole="BUTTON" layoutY="${naskah.layoutY+naskah.height}" onMouseClicked="#penelitianClicked" onMouseEntered="#penelitianMouseEnterExit" onMouseExited="#penelitianMouseEnterExit" prefHeight="${sidePane.height*0.0626}" prefWidth="${sidePane.width}" style="-fx-background-color: FFA500;">
                  <children>
-                     <Label layoutX="30" layoutY="9.0" text="PENELITIAN" textFill="WHITE">
+                     <Label fx:id="penelitianText" layoutX="30" layoutY="9.0" text="PENELITIAN" textFill="WHITE">
                          <font>
                              <Font name="System Bold" size="18.0" />
                          </font>
                          <graphic>
-                             <ImageView fitWidth="30" preserveRatio="true" smooth="true">
+                             <ImageView fitWidth="31" preserveRatio="true" smooth="true">
                                  <image>
                                      <Image url="/research.png" />
                                  </image>
@@ -87,12 +86,12 @@
              </Pane>
              <Pane id="permainan" fx:id="permainan" accessibleRole="BUTTON" layoutY="${penelitian.layoutY+penelitian.height}" onMouseClicked="#permainanClicked" onMouseEntered="#permainanMouseEnterExit" onMouseExited="#permainanMouseEnterExit" prefHeight="${sidePane.height*0.0626}" prefWidth="${sidePane.width}" style="-fx-background-color: FFA500;">
                  <children>
-                     <Label layoutX="30" layoutY="9.0" text="PERMAINAN" textFill="WHITE">
+                     <Label fx:id="permainanText" layoutX="30" layoutY="9.0" text="PERMAINAN" textFill="WHITE">
                          <font>
                              <Font name="System Bold" size="18.0" />
                          </font>
                          <graphic>
-                             <ImageView fitWidth="30" preserveRatio="true" smooth="true">
+                             <ImageView fitWidth="31" preserveRatio="true" smooth="true">
                                  <image>
                                      <Image url="/game.png" />
                                  </image>
@@ -103,12 +102,12 @@
              </Pane>
              <Pane id="pencarian" fx:id="pencarian" accessibleRole="BUTTON" layoutY="${permainan.layoutY+permainan.height}" onMouseClicked="#pencarianClicked" onMouseEntered="#pencarianMouseEnterExit" onMouseExited="#pencarianMouseEnterExit" prefHeight="${sidePane.height*0.0626}" prefWidth="${sidePane.width}" style="-fx-background-color: FFA500;">
                  <children>
-                     <Label layoutX="30" layoutY="9.0" text="PENCARIAN" textFill="WHITE">
+                     <Label fx:id="pencarianText" layoutX="30" layoutY="9.0" text="PENCARIAN" textFill="WHITE">
                          <font>
                              <Font name="System Bold" size="18.0" />
                          </font>
                          <graphic>
-                             <ImageView fitWidth="30" preserveRatio="true" smooth="true">
+                             <ImageView fitWidth="31" preserveRatio="true" smooth="true">
                                  <image>
                                      <Image url="/search.png" />
                                  </image>
@@ -119,12 +118,12 @@
              </Pane>
              <Pane id="about" fx:id="about" accessibleRole="BUTTON" layoutY="${pencarian.layoutY+pencarian.height}" onMouseClicked="#aboutClicked" onMouseEntered="#aboutMouseEnterExit" onMouseExited="#aboutMouseEnterExit" prefHeight="${sidePane.height*0.0626}" prefWidth="${sidePane.width}" style="-fx-background-color: FFA500;">
                  <children>
-                     <Label layoutX="30" layoutY="9.0" text="TENTANG KAMI" textFill="WHITE">
+                     <Label fx:id="aboutText" layoutX="30" layoutY="9.0" text="TENTANG KAMI" textFill="WHITE">
                          <font>
                              <Font name="System Bold" size="18.0" />
                          </font>
                          <graphic>
-                             <ImageView fitWidth="30" preserveRatio="true" smooth="true">
+                             <ImageView fitWidth="31" preserveRatio="true" smooth="true">
                                  <image>
                                      <Image url="/about.png" />
                                  </image>
@@ -135,8 +134,8 @@
              </Pane>
          </children>
       </Pane>
-      <BorderPane layoutX="${sidePane.width}" fx:id="content" prefHeight="${mainPane.height}" prefWidth="${mainPane.width*0.75}" style="-fx-background-color: FFFFFF">
-          <fx:include source="welcome.fxml"></fx:include>
+      <BorderPane layoutX="${sidePane.width}" fx:id="content" prefHeight="${mainPane.height}" prefWidth="${mainPane.width*0.75}" style="-fx-background-color: FFD700">
+
       </BorderPane>
    </children>
 </Pane>
