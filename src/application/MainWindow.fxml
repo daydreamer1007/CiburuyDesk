@@ -15,7 +15,7 @@
     <children>
       <Pane fx:id="sidePane" layoutX="0.0" layoutY="0.0" prefHeight="${mainPane.height}" prefWidth="${mainPane.width*0.25}" style="-fx-background-color: FFA500;">
          <children>
-             <Label id="titleLabel" fx:id="titleLabel" text="CIBURUY DESK V2.0" textFill="WHITE">
+             <Label id="titleLabel" fx:id="titleLabel" text="CIBURUY DESK" textFill="WHITE">
                   <font>
                       <Font name="System Bold" size="20.0"/>
                   </font>

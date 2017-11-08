@@ -3,6 +3,7 @@ package application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.Cursor;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -55,16 +56,19 @@ public class WelcomeController {
         password.layoutXProperty().bind(username.layoutXProperty());
         password.layoutYProperty().bind(username.layoutYProperty().add(username.prefHeightProperty()).add(10));
 
+        login.setCursor(Cursor.HAND);
         login.prefWidthProperty().bind(username.prefWidthProperty().multiply(0.4));
         login.prefHeightProperty().bind(username.prefHeightProperty().multiply(1.5));
         login.layoutXProperty().bind(username.layoutXProperty());
         login.layoutYProperty().bind(password.layoutYProperty().add(password.heightProperty()).add(15));
 
+        signup.setCursor(Cursor.HAND);
         signup.prefWidthProperty().bind(login.prefWidthProperty());
         signup.prefHeightProperty().bind(login.prefHeightProperty());
         signup.layoutXProperty().bind(username.layoutXProperty().add(username.widthProperty()).subtract(signup.widthProperty()));
         signup.layoutYProperty().bind(login.layoutYProperty());
 
+        guest.setCursor(Cursor.HAND);
         guest.prefWidthProperty().bind(username.widthProperty());
         guest.prefHeightProperty().bind(login.prefHeightProperty());
         guest.layoutXProperty().bind(username.layoutXProperty());

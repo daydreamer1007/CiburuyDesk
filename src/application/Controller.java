@@ -4,6 +4,7 @@ import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -80,6 +81,14 @@ public class Controller {
 
         titleLabel.layoutXProperty().bind(titleX);
         titleLabel.layoutYProperty().bind(titleY);
+
+        welcome.setCursor(Cursor.HAND);
+        galeri.setCursor(Cursor.HAND);
+        naskah.setCursor(Cursor.HAND);
+        penelitian.setCursor(Cursor.HAND);
+        permainan.setCursor(Cursor.HAND);
+        pencarian.setCursor(Cursor.HAND);
+        about.setCursor(Cursor.HAND);
 
         sidePane.widthProperty().addListener(event -> resizeChange(sidePane.getChildren()));
         sidePane.heightProperty().addListener(event -> resizeChange(sidePane.getChildren()));
@@ -182,13 +191,7 @@ public class Controller {
 
         //Function that will change the pane's contents go below here
         content.getChildren().clear();
-        try{
-            content.getChildren().add(FXMLLoader.load(getClass().getResource("Galeri.fxml")));
-            ((ScrollPane)content.lookup("#galeriScroll")).prefHeightProperty().bind(content.prefHeightProperty());
-            ((ScrollPane)content.lookup("#galeriScroll")).prefWidthProperty().bind(content.prefWidthProperty());
-        }catch(IOException e){
-            e.printStackTrace();
-        }
+
     }
 
     @FXML
@@ -209,6 +212,15 @@ public class Controller {
         about.setDisable(false);
 
         //Function that will change the pane's contents go below here
+        content.getChildren().clear();
+
+        try{
+            content.getChildren().add(FXMLLoader.load(getClass().getResource("Naskah.fxml")));
+            ((ScrollPane)content.lookup("#naskahScroll")).prefHeightProperty().bind(content.prefHeightProperty());
+            ((ScrollPane)content.lookup("#naskahScroll")).prefWidthProperty().bind(content.prefWidthProperty());
+        }catch(IOException e){
+            e.printStackTrace();
+        }
     }
 
     @FXML
