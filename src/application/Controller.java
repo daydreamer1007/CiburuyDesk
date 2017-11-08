@@ -23,9 +23,6 @@ public class Controller {
     Pane sidePane;
 
     @FXML
-    Pane title;
-
-    @FXML
     Label titleLabel;
 
     @FXML

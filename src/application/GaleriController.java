@@ -4,15 +4,16 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.TilePane;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.stage.Screen;
 import java.io.File;
@@ -75,15 +76,33 @@ public class GaleriController {
                         if(mouseEvent.getClickCount() == 2){
                             try {
                                 BorderPane borderPane = new BorderPane();
+                                StackPane container = new StackPane();
                                 ImageView imageView = new ImageView();
                                 Image image = new Image(new FileInputStream(imageFile));
+                                Label watermark = new Label();
+
                                 imageView.setImage(image);
                                 imageView.setStyle("-fx-background-color: BLACK");
                                 imageView.setFitWidth(Screen.getPrimary().getVisualBounds().getWidth() - 30);
                                 imageView.setPreserveRatio(true);
                                 imageView.setSmooth(true);
                                 imageView.setCache(true);
-                                borderPane.setCenter(imageView);
+
+                                container.setPrefHeight(imageView.getFitWidth());
+                                container.setPrefHeight(imageView.getFitHeight());
+
+                                watermark.setText("CIBURUY DESK V2.0");
+                                watermark.setTextFill(Color.WHITE);
+                                watermark.setFont(Font.font("System", FontWeight.EXTRA_BOLD, Screen.getPrimary().getVisualBounds().getHeight() * 0.07));
+                                watermark.setGraphic(new ImageView("/logo.png"));
+                                ((ImageView)watermark.getGraphic()).setFitHeight(watermark.getFont().getSize() * 2);
+                                ((ImageView)watermark.getGraphic()).setPreserveRatio(true);
+                                ((ImageView)watermark.getGraphic()).setSmooth(true);
+                                watermark.setOpacity(0.5);
+
+                                container.getChildren().add(imageView);
+                                container.getChildren().add(watermark);
+                                borderPane.setCenter(container);
                                 borderPane.setStyle("-fx-background-color: BLACK");
                                 Stage newStage = new Stage();
                                 newStage.setWidth(Screen.getPrimary().getVisualBounds().getWidth());
