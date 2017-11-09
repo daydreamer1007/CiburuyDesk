@@ -26,7 +26,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class NaskahController {
-
     @FXML
     AnchorPane naskah;
 
@@ -69,14 +68,13 @@ public class NaskahController {
         try {
             final Image image = new Image(new FileInputStream(imageFile));
             imageView = new ImageView(image);
-            imageView.setFitWidth(Screen.getPrimary().getVisualBounds().getWidth()*0.8*0.75*0.95);
             imageView.setPreserveRatio(true);
             imageView.setSmooth(true);
 
             imageView.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent mouseEvent) {
-                    FullScreenViewer(imageList, imageFile);
+                    new FullScreenViewer(imageList, imageFile);
                 }
             });
 

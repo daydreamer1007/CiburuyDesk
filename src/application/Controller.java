@@ -192,6 +192,13 @@ public class Controller {
         //Function that will change the pane's contents go below here
         content.getChildren().clear();
 
+        try{
+            content.getChildren().add(FXMLLoader.load(getClass().getResource("Galeri.fxml")));
+            ((ScrollPane)content.lookup("#galeriScroll")).prefHeightProperty().bind(content.prefHeightProperty());
+            ((ScrollPane)content.lookup("#galeriScroll")).prefWidthProperty().bind(content.prefWidthProperty());
+        }catch(IOException e){
+            e.printStackTrace();
+        }
     }
 
     @FXML
