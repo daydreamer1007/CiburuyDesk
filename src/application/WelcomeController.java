@@ -28,9 +28,6 @@ public class WelcomeController {
     Button login;
 
     @FXML
-    Button signup;
-
-    @FXML
     Button guest;
 
 
@@ -57,19 +54,13 @@ public class WelcomeController {
         password.layoutYProperty().bind(username.layoutYProperty().add(username.prefHeightProperty()).add(10));
 
         login.setCursor(Cursor.HAND);
-        login.prefWidthProperty().bind(username.prefWidthProperty().multiply(0.4));
+        login.prefWidthProperty().bind(username.prefWidthProperty());
         login.prefHeightProperty().bind(username.prefHeightProperty().multiply(1.5));
         login.layoutXProperty().bind(username.layoutXProperty());
-        login.layoutYProperty().bind(password.layoutYProperty().add(password.heightProperty()).add(15));
-
-        signup.setCursor(Cursor.HAND);
-        signup.prefWidthProperty().bind(login.prefWidthProperty());
-        signup.prefHeightProperty().bind(login.prefHeightProperty());
-        signup.layoutXProperty().bind(username.layoutXProperty().add(username.widthProperty()).subtract(signup.widthProperty()));
-        signup.layoutYProperty().bind(login.layoutYProperty());
+        login.layoutYProperty().bind(password.layoutYProperty().add(password.heightProperty()).add(30));
 
         guest.setCursor(Cursor.HAND);
-        guest.prefWidthProperty().bind(username.widthProperty());
+        guest.prefWidthProperty().bind(username.prefWidthProperty());
         guest.prefHeightProperty().bind(login.prefHeightProperty());
         guest.layoutXProperty().bind(username.layoutXProperty());
         guest.layoutYProperty().bind(login.layoutYProperty().add(login.prefHeightProperty()).add(15));
