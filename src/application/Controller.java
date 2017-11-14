@@ -248,6 +248,7 @@ public class Controller {
         about.setDisable(false);
 
         //Function that will change the pane's contents go below here
+        content.getChildren().clear();
     }
 
     @FXML
@@ -268,6 +269,7 @@ public class Controller {
         about.setDisable(false);
 
         //Function that will change the pane's contents go below here
+        content.getChildren().clear();
     }
 
     @FXML
@@ -288,6 +290,7 @@ public class Controller {
         about.setDisable(false);
 
         //Function that will change the pane's contents go below here
+        content.getChildren().clear();
     }
 
     @FXML
@@ -308,6 +311,7 @@ public class Controller {
         about.setDisable(true);
 
         //Function that will change the pane's contents go below here
+        content.getChildren().clear();
     }
 
 

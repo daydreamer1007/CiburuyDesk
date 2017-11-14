@@ -74,14 +74,6 @@ public class WelcomeController {
         guest.layoutXProperty().bind(username.layoutXProperty());
         guest.layoutYProperty().bind(login.layoutYProperty().add(login.prefHeightProperty()).add(15));
 
-        login.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("X     : " + guest.getPrefWidth());
-                System.out.println("Y     : " + guest.getPrefHeight());
-                System.out.println("Font  : " + guest.getFont().getSize());
-            }
-        });
     }
 
 }

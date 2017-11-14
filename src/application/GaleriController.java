@@ -32,7 +32,7 @@ public class GaleriController {
         ScrollPane galeriScroll = new ScrollPane();
         galeriScroll.setId("galeriScroll");
         TilePane tile = new TilePane();
-        galeriScroll.setStyle("-fx-background-color: FFFFFF");
+        galeriScroll.setStyle("-fx-background-color: FFD700");
         galeriScroll.setPrefHeight(Screen.getPrimary().getVisualBounds().getHeight()*0.8);
         galeriScroll.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth()*0.8*0.75);
         tile.prefHeightProperty().bind(galeriScroll.prefHeightProperty());
@@ -51,12 +51,6 @@ public class GaleriController {
         DoubleProperty bindWidth = new SimpleDoubleProperty();
         DoubleProperty bindHeight = new SimpleDoubleProperty();
 
-
-        System.out.println(tile.getTileHeight());
-        System.out.println(tile.getTileWidth());
-        System.out.println(tile.getPrefTileHeight());
-        System.out.println(tile.getPrefTileWidth());
-
         bindWidth.bind(tile.prefWidthProperty().subtract(80).divide(3));
         bindHeight.bind(galeriScroll.prefHeightProperty().multiply(bindWidth).divide(galeriScroll.prefWidthProperty()));
 
@@ -66,7 +60,7 @@ public class GaleriController {
 
             imagePane.prefWidthProperty().bind(bindWidth);
             imagePane.prefHeightProperty().bind(bindHeight);
-            imagePane.setStyle("-fx-background-color: FFA500");
+            imagePane.setStyle("-fx-background-color: FFD700");
 
             if(imageView.getImage().getWidth() > imageView.getImage().getHeight()){
                 imageView.fitWidthProperty().bind(imagePane.prefWidthProperty().multiply(0.9));
@@ -76,8 +70,29 @@ public class GaleriController {
             }
 
             imagePane.setCenter(imageView);
+            imagePane.setCursor(Cursor.HAND);
 
-            imageView.setCursor(Cursor.HAND);
+            imagePane.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    new FullScreenViewer(listOfFiles, file);
+                }
+            });
+
+            imagePane.setOnMouseEntered(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    imagePane.setStyle("-fx-background-color: FFA500");
+                }
+            });
+
+            imagePane.setOnMouseExited(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    imagePane.setStyle("-fx-background-color: FFD700");
+                }
+            });
+
             tile.getChildren().add(imagePane);
         }
 
@@ -96,14 +111,6 @@ public class GaleriController {
             imageView.setFitWidth(((Screen.getPrimary().getVisualBounds().getWidth()*0.8*0.75) - 70) / 3);
             imageView.setPreserveRatio(true);
             imageView.setSmooth(true);
-
-            imageView.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent mouseEvent) {
-                    new FullScreenViewer(imageList, imageFile);
-                }
-            });
-
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
         }

@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -31,6 +32,7 @@ public class FullScreenViewer {
             StackPane container = new StackPane();
             ImageView imageView = new ImageView();
             Image image = new Image(new FileInputStream(imageFile));
+            BorderPane watermarkContainer = new BorderPane();
             Label watermark = new Label();
             Pane buttonPane = new Pane();
             Pane prevPane = new Pane();
@@ -44,6 +46,10 @@ public class FullScreenViewer {
             imageView.setPreserveRatio(true);
             imageView.setSmooth(true);
             imageView.setCache(true);
+
+            watermarkContainer.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth());
+            watermarkContainer.setPrefHeight(Screen.getPrimary().getVisualBounds().getHeight());
+            watermarkContainer.setCenter(watermark);
 
             watermark.setText("CIBURUY DESK");
             watermark.setTextFill(Color.WHITE);
@@ -68,7 +74,6 @@ public class FullScreenViewer {
             }
 
             container.getChildren().add(imageView);
-            container.getChildren().add(watermark);
 
             prev.setFitWidth(Screen.getPrimary().getVisualBounds().getWidth() / 15);
             prev.setPreserveRatio(true);
@@ -99,6 +104,7 @@ public class FullScreenViewer {
             buttonPane.getChildren().add(nextPane);
 
             overallContainer.getChildren().add(container);
+            overallContainer.getChildren().add(watermarkContainer);
             overallContainer.getChildren().add(buttonPane);
             overallContainer.setStyle("-fx-background-color: BLACK");
 
