@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -15,6 +16,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -34,9 +36,11 @@ public class FullScreenViewer {
             Image image = new Image(new FileInputStream(imageFile));
             BorderPane watermarkContainer = new BorderPane();
             Label watermark = new Label();
+            Pane backPane = new Pane();
             Pane buttonPane = new Pane();
             Pane prevPane = new Pane();
             Pane nextPane = new Pane();
+            ImageView back = new ImageView("/prev.png");
             ImageView prev = new ImageView("/prev.png");
             ImageView next = new ImageView("/next.png");
 
@@ -61,19 +65,30 @@ public class FullScreenViewer {
             watermark.setOpacity(0.5);
 
             if(imageView.getImage().getWidth() > imageView.getImage().getHeight()) {
-                imageView.setFitWidth(Screen.getPrimary().getVisualBounds().getWidth() * 0.9);
+                imageView.setFitWidth(Screen.getPrimary().getVisualBounds().getWidth() * 0.95);
                 container.setPrefWidth(imageView.getFitWidth());
                 container.setPrefHeight(imageView.getFitWidth() / imageView.getImage().getWidth() * imageView.getImage().getHeight());
                 watermark.setRotate(0);
             }
             else{
-                imageView.setFitHeight(Screen.getPrimary().getVisualBounds().getHeight() * 0.8);
+                imageView.setFitHeight(Screen.getPrimary().getVisualBounds().getHeight() * 0.85);
                 container.setPrefHeight(imageView.getFitHeight());
                 container.setPrefWidth(imageView.getFitHeight() / imageView.getImage().getHeight() * imageView.getImage().getWidth());
                 watermark.setRotate(90);
             }
 
             container.getChildren().add(imageView);
+
+            back.setFitWidth(Screen.getPrimary().getVisualBounds().getWidth() / 30);
+            back.setPreserveRatio(true);
+            back.setSmooth(true);
+
+            backPane.setPrefWidth(back.getFitWidth());
+            backPane.setPrefHeight(back.getFitWidth());
+            backPane.getChildren().add(back);
+            backPane.setLayoutY(20);
+            backPane.setLayoutX(20);
+            backPane.setCursor(Cursor.HAND);
 
             prev.setFitWidth(Screen.getPrimary().getVisualBounds().getWidth() / 15);
             prev.setPreserveRatio(true);
@@ -84,7 +99,7 @@ public class FullScreenViewer {
             next.setSmooth(true);
 
             prevPane.setPrefWidth(prev.getFitWidth());
-            prevPane.setPrefHeight(prev.getFitWidth() * prev.getImage().getHeight() / prev.getImage().getWidth());
+            prevPane.setPrefHeight(prev.getFitWidth());
             prevPane.getChildren().add(prev);
             prevPane.setLayoutX(prevPane.getPrefWidth() * 5);
             prevPane.setCursor(Cursor.HAND);
@@ -106,18 +121,11 @@ public class FullScreenViewer {
             overallContainer.getChildren().add(container);
             overallContainer.getChildren().add(watermarkContainer);
             overallContainer.getChildren().add(buttonPane);
+            overallContainer.getChildren().add(backPane);
             overallContainer.setStyle("-fx-background-color: BLACK");
 
             container.setLayoutX((Screen.getPrimary().getVisualBounds().getWidth() - container.getPrefWidth()) / 2);
             container.setLayoutY((Screen.getPrimary().getVisualBounds().getHeight() - container.getPrefHeight()) / 2);
-
-            if (currentIndex == 0) {
-                prevPane.setDisable(true);
-            }
-
-            if (currentIndex == imageList.size() - 1) {
-                nextPane.setDisable(true);
-            }
 
             Stage newStage = new Stage();
             newStage.setWidth(Screen.getPrimary().getVisualBounds().getWidth());
@@ -127,8 +135,16 @@ public class FullScreenViewer {
             newStage.setScene(scene);
             newStage.setMaximized(true);
             newStage.setResizable(false);
-            newStage.setTitle(imageFile.getName());
+            //newStage.setTitle(imageFile.getName());
+            newStage.initStyle(StageStyle.UNDECORATED);
             newStage.show();
+
+            backPane.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    newStage.close();
+                }
+            });
 
             buttonPane.setOnMouseEntered(new EventHandler<MouseEvent>() {
                 @Override
@@ -154,16 +170,22 @@ public class FullScreenViewer {
                 @Override
                 public void handle(MouseEvent event) {
                     try {
-                        imageView.setImage(new Image(new FileInputStream(imageList.get(currentIndex - 1))));
+                        currentIndex -= 1;
+
+                        if(currentIndex < 0){
+                            currentIndex = imageList.size() - 1;
+                        }
+
+                        imageView.setImage(new Image(new FileInputStream(imageList.get(currentIndex ))));
 
                         if(imageView.getImage().getWidth() > imageView.getImage().getHeight()) {
-                            imageView.setFitWidth(Screen.getPrimary().getVisualBounds().getWidth() * 0.9);
+                            imageView.setFitWidth(Screen.getPrimary().getVisualBounds().getWidth() * 0.95);
                             container.setPrefWidth(imageView.getFitWidth());
                             container.setPrefHeight(imageView.getFitWidth() / imageView.getImage().getWidth() * imageView.getImage().getHeight());
                             watermark.setRotate(0);
                         }
                         else{
-                            imageView.setFitHeight(Screen.getPrimary().getVisualBounds().getHeight() * 0.8);
+                            imageView.setFitHeight(Screen.getPrimary().getVisualBounds().getHeight() * 0.85);
                             container.setPrefHeight(imageView.getFitHeight());
                             container.setPrefWidth(imageView.getFitHeight() / imageView.getImage().getHeight() * imageView.getImage().getWidth());
                             watermark.setRotate(90);
@@ -172,17 +194,7 @@ public class FullScreenViewer {
                         container.setLayoutX((Screen.getPrimary().getVisualBounds().getWidth() - container.getPrefWidth()) / 2);
                         container.setLayoutY((Screen.getPrimary().getVisualBounds().getHeight() - container.getPrefHeight()) / 2);
 
-                        if (currentIndex == imageList.size() - 1) {
-                            nextPane.setDisable(false);
-                        }
-
-                        if (currentIndex == 1) {
-                            prevPane.setDisable(true);
-                        }
-
-                        currentIndex -= 1;
-
-                        newStage.setTitle(imageList.get(currentIndex).getName());
+                        //newStage.setTitle(imageList.get(currentIndex).getName());
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -193,16 +205,22 @@ public class FullScreenViewer {
                 @Override
                 public void handle(MouseEvent event) {
                     try {
-                        imageView.setImage(new Image(new FileInputStream(imageList.get(currentIndex + 1))));
+                        currentIndex += 1;
+
+                        if(currentIndex == imageList.size()){
+                            currentIndex = 0;
+                        }
+
+                        imageView.setImage(new Image(new FileInputStream(imageList.get(currentIndex))));
 
                         if(imageView.getImage().getWidth() > imageView.getImage().getHeight()) {
-                            imageView.setFitWidth(Screen.getPrimary().getVisualBounds().getWidth() * 0.9);
+                            imageView.setFitWidth(Screen.getPrimary().getVisualBounds().getWidth() * 0.95);
                             container.setPrefWidth(imageView.getFitWidth());
                             container.setPrefHeight(imageView.getFitWidth() / imageView.getImage().getWidth() * imageView.getImage().getHeight());
                             watermark.setRotate(0);
                         }
                         else{
-                            imageView.setFitHeight(Screen.getPrimary().getVisualBounds().getHeight() * 0.8);
+                            imageView.setFitHeight(Screen.getPrimary().getVisualBounds().getHeight() * 0.85);
                             container.setPrefHeight(imageView.getFitHeight());
                             container.setPrefWidth(imageView.getFitHeight() / imageView.getImage().getHeight() * imageView.getImage().getWidth());
                             watermark.setRotate(90);
@@ -211,17 +229,7 @@ public class FullScreenViewer {
                         container.setLayoutX((Screen.getPrimary().getVisualBounds().getWidth() - container.getPrefWidth()) / 2);
                         container.setLayoutY((Screen.getPrimary().getVisualBounds().getHeight() - container.getPrefHeight()) / 2);
 
-                        if (currentIndex == 0) {
-                            prevPane.setDisable(false);
-                        }
-
-                        if (currentIndex == imageList.size() - 2) {
-                            nextPane.setDisable(true);
-                        }
-
-                        currentIndex += 1;
-
-                        newStage.setTitle(imageList.get(currentIndex).getName());
+                        //newStage.setTitle(imageList.get(currentIndex).getName());
                     } catch (IOException e) {
                         e.printStackTrace();
                     }

@@ -60,7 +60,7 @@ public class GaleriController {
 
             imagePane.prefWidthProperty().bind(bindWidth);
             imagePane.prefHeightProperty().bind(bindHeight);
-            imagePane.setStyle("-fx-background-color: FFD700");
+            imagePane.setStyle("-fx-background-color: FFA500");
 
             if(imageView.getImage().getWidth() > imageView.getImage().getHeight()){
                 imageView.fitWidthProperty().bind(imagePane.prefWidthProperty().multiply(0.9));
@@ -82,14 +82,14 @@ public class GaleriController {
             imagePane.setOnMouseEntered(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-                    imagePane.setStyle("-fx-background-color: FFA500");
+                    imagePane.setStyle("-fx-background-color: FFC000");
                 }
             });
 
             imagePane.setOnMouseExited(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-                    imagePane.setStyle("-fx-background-color: FFD700");
+                    imagePane.setStyle("-fx-background-color: FFA500");
                 }
             });
 

@@ -46,12 +46,13 @@ public class WelcomeController {
         username.prefHeightProperty().bind(welcomePane.prefHeightProperty().divide(25));
         username.layoutXProperty().bind(welcomePane.prefWidthProperty().subtract(username.prefWidthProperty()).divide(2));
         username.layoutYProperty().bind(logo.layoutYProperty().add(logo.fitHeightProperty()).add(10));
-
+        username.setFocusTraversable(false);
 
         password.prefWidthProperty().bind(username.prefWidthProperty());
         password.prefHeightProperty().bind(username.prefHeightProperty());
         password.layoutXProperty().bind(username.layoutXProperty());
         password.layoutYProperty().bind(username.layoutYProperty().add(username.prefHeightProperty()).add(10));
+        password.setFocusTraversable(false);
 
         login.setCursor(Cursor.HAND);
         login.prefWidthProperty().bind(username.prefWidthProperty());
