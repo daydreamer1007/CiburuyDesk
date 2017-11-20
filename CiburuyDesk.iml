@@ -8,5 +8,18 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="file://$USER_HOME$/Downloads/Compressed/mysql-connector-java-5.1.44" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$USER_HOME$/Downloads/Compressed/mysql-connector-java-5.1.44/src" />
+        </SOURCES>
+        <jarDirectory url="file://$USER_HOME$/Downloads/Compressed/mysql-connector-java-5.1.44" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="mysql-connector-java-5.1.44-bin" level="project" />
   </component>
 </module>
