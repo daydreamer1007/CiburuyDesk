@@ -40,7 +40,7 @@ public class FullScreenViewer {
             Pane buttonPane = new Pane();
             Pane prevPane = new Pane();
             Pane nextPane = new Pane();
-            ImageView back = new ImageView("/prev.png");
+            ImageView back = new ImageView("/back.png");
             ImageView prev = new ImageView("/prev.png");
             ImageView next = new ImageView("/next.png");
 
@@ -55,7 +55,7 @@ public class FullScreenViewer {
             watermarkContainer.setPrefHeight(Screen.getPrimary().getVisualBounds().getHeight());
             watermarkContainer.setCenter(watermark);
 
-            watermark.setText("CIBURUY DESK");
+            watermark.setText("MANDALA");
             watermark.setTextFill(Color.WHITE);
             watermark.setFont(Font.font("System", FontWeight.EXTRA_BOLD, Screen.getPrimary().getVisualBounds().getHeight() * 0.07));
             watermark.setGraphic(new ImageView("/logo.png"));
@@ -176,15 +176,17 @@ public class FullScreenViewer {
                             currentIndex = imageList.size() - 1;
                         }
 
-                        imageView.setImage(new Image(new FileInputStream(imageList.get(currentIndex ))));
+                        imageView.setImage(new Image(new FileInputStream(imageList.get(currentIndex))));
 
                         if(imageView.getImage().getWidth() > imageView.getImage().getHeight()) {
+                            imageView.setFitHeight(0.0);
                             imageView.setFitWidth(Screen.getPrimary().getVisualBounds().getWidth() * 0.95);
                             container.setPrefWidth(imageView.getFitWidth());
                             container.setPrefHeight(imageView.getFitWidth() / imageView.getImage().getWidth() * imageView.getImage().getHeight());
                             watermark.setRotate(0);
                         }
                         else{
+                            imageView.setFitWidth(0.0);
                             imageView.setFitHeight(Screen.getPrimary().getVisualBounds().getHeight() * 0.85);
                             container.setPrefHeight(imageView.getFitHeight());
                             container.setPrefWidth(imageView.getFitHeight() / imageView.getImage().getHeight() * imageView.getImage().getWidth());
@@ -214,12 +216,14 @@ public class FullScreenViewer {
                         imageView.setImage(new Image(new FileInputStream(imageList.get(currentIndex))));
 
                         if(imageView.getImage().getWidth() > imageView.getImage().getHeight()) {
+                            imageView.setFitHeight(0.0);
                             imageView.setFitWidth(Screen.getPrimary().getVisualBounds().getWidth() * 0.95);
                             container.setPrefWidth(imageView.getFitWidth());
                             container.setPrefHeight(imageView.getFitWidth() / imageView.getImage().getWidth() * imageView.getImage().getHeight());
                             watermark.setRotate(0);
                         }
                         else{
+                            imageView.setFitWidth(0.0);
                             imageView.setFitHeight(Screen.getPrimary().getVisualBounds().getHeight() * 0.85);
                             container.setPrefHeight(imageView.getFitHeight());
                             container.setPrefWidth(imageView.getFitHeight() / imageView.getImage().getHeight() * imageView.getImage().getWidth());

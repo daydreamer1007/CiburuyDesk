@@ -25,16 +25,23 @@ import java.util.List;
 
 public class GaleriController {
     @FXML
-    AnchorPane galeri;
+    Pane galeriPane;
 
     @FXML
     public void initialize(){
         ScrollPane galeriScroll = new ScrollPane();
         galeriScroll.setId("galeriScroll");
         TilePane tile = new TilePane();
+
+        galeriPane.setPrefHeight(Screen.getPrimary().getVisualBounds().getHeight() * 0.8);
+        galeriPane.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth() * 0.8 * 0.75);
+
+        galeriScroll.prefWidthProperty().bind(galeriPane.prefWidthProperty());
+        galeriScroll.prefHeightProperty().bind(galeriPane.prefHeightProperty());
         galeriScroll.setStyle("-fx-background-color: FFD700");
-        galeriScroll.setPrefHeight(Screen.getPrimary().getVisualBounds().getHeight()*0.8);
-        galeriScroll.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth()*0.8*0.75);
+        //galeriScroll.setPrefHeight(Screen.getPrimary().getVisualBounds().getHeight()*0.8);
+        //galeriScroll.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth()*0.8*0.75);
+
         tile.prefHeightProperty().bind(galeriScroll.prefHeightProperty());
         tile.prefWidthProperty().bind(galeriScroll.prefWidthProperty());
         tile.setPadding(new Insets(15, 15, 15, 15));
@@ -100,7 +107,8 @@ public class GaleriController {
         galeriScroll.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED); // Vertical scroll bar
         galeriScroll.setFitToWidth(true);
         galeriScroll.setContent(tile);
-        galeri.getChildren().add(galeriScroll);
+
+        galeriPane.getChildren().add(galeriScroll);
     }
 
     private ImageView createImageView(final List<File> imageList, File imageFile) {

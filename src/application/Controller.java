@@ -13,8 +13,14 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+
+import javax.xml.transform.Result;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.*;
+import java.util.Base64;
 import java.util.List;
 
 public class Controller {
@@ -31,7 +37,7 @@ public class Controller {
     Pane welcome;
 
     @FXML
-    Pane galeri;
+    public Pane galeri;
 
     @FXML
     Pane naskah;
@@ -72,6 +78,16 @@ public class Controller {
     @FXML
     Label aboutText;
 
+    public static String dbms = "mysql";
+    public static String address = "localhost";
+    public static String port = "3306";
+    public static String database = "mandala";
+    public static String user = "root";
+    public static String pass = "12345";
+
+    public static String loggedName;
+    public static String loggedStats;
+
     @FXML
     public void initialize(){
         DoubleProperty titleX = new SimpleDoubleProperty(10.0);
@@ -82,6 +98,13 @@ public class Controller {
 
         titleLabel.layoutXProperty().bind(titleX);
         titleLabel.layoutYProperty().bind(titleY);
+
+        galeri.setDisable(true);
+        naskah.setDisable(true);
+        penelitian.setDisable(true);
+        permainan.setDisable(true);
+        pencarian.setDisable(true);
+        about.setDisable(true);
 
         welcome.setCursor(Cursor.HAND);
         galeri.setCursor(Cursor.HAND);
@@ -195,8 +218,8 @@ public class Controller {
 
         try{
             content.getChildren().add(FXMLLoader.load(getClass().getResource("Galeri.fxml")));
-            ((ScrollPane)content.lookup("#galeriScroll")).prefHeightProperty().bind(content.prefHeightProperty());
-            ((ScrollPane)content.lookup("#galeriScroll")).prefWidthProperty().bind(content.prefWidthProperty());
+            ((Pane)content.lookup("#galeriPane")).prefHeightProperty().bind(content.prefHeightProperty());
+            ((Pane)content.lookup("#galeriPane")).prefWidthProperty().bind(content.prefWidthProperty());
         }catch(IOException e){
             e.printStackTrace();
         }
@@ -224,8 +247,8 @@ public class Controller {
 
         try{
             content.getChildren().add(FXMLLoader.load(getClass().getResource("Naskah.fxml")));
-            ((ScrollPane)content.lookup("#naskahScroll")).prefHeightProperty().bind(content.prefHeightProperty());
-            ((ScrollPane)content.lookup("#naskahScroll")).prefWidthProperty().bind(content.prefWidthProperty());
+            ((Pane)content.lookup("#naskahPane")).prefHeightProperty().bind(content.prefHeightProperty());
+            ((Pane)content.lookup("#naskahPane")).prefWidthProperty().bind(content.prefWidthProperty());
         }catch(IOException e){
             e.printStackTrace();
         }

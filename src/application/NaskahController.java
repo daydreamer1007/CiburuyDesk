@@ -27,16 +27,21 @@ import java.util.List;
 
 public class NaskahController {
     @FXML
-    AnchorPane naskah;
+    Pane naskahPane;
 
     @FXML
     public void initialize(){
         ScrollPane naskahScroll = new ScrollPane();
         naskahScroll.setId("naskahScroll");
         TilePane tile = new TilePane();
+
+        naskahPane.setPrefHeight(Screen.getPrimary().getVisualBounds().getHeight() * 0.8);
+        naskahPane.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth() * 0.8 * 0.75);
+
+        naskahScroll.prefWidthProperty().bind(naskahPane.prefWidthProperty());
+        naskahScroll.prefHeightProperty().bind(naskahPane.prefHeightProperty());
         naskahScroll.setStyle("-fx-background-color: FFD700");
-        naskahScroll.setPrefHeight(Screen.getPrimary().getVisualBounds().getHeight()*0.8);
-        naskahScroll.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth()*0.8*0.75);
+
         tile.prefHeightProperty().bind(naskahScroll.prefHeightProperty());
         tile.prefWidthProperty().bind(naskahScroll.prefWidthProperty());
         tile.setPadding(new Insets(15, 15, 15, 15));
@@ -60,7 +65,8 @@ public class NaskahController {
         naskahScroll.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED); // Vertical scroll bar
         naskahScroll.setFitToWidth(true);
         naskahScroll.setContent(tile);
-        naskah.getChildren().add(naskahScroll);
+
+        naskahPane.getChildren().add(naskahScroll);
     }
 
     private ImageView createImageView(final List<File> imageList, File imageFile) {
