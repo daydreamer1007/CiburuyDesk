@@ -1,26 +1,26 @@
 package application;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.util.Duration;
 
-import javax.xml.transform.Result;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.sql.*;
-import java.util.Base64;
+import java.util.Date;
 import java.util.List;
 
 public class Controller {
@@ -86,10 +86,15 @@ public class Controller {
     public static String pass = "12345";
 
     public static String loggedName;
-    public static String loggedStats;
+    public static String loggedStatus;
+    public static Timeline timeline;
 
     @FXML
     public void initialize(){
+        timeline = new Timeline(
+            new KeyFrame(Duration.minutes(10.0), e -> logout())
+        );
+
         DoubleProperty titleX = new SimpleDoubleProperty(10.0);
         DoubleProperty titleY = new SimpleDoubleProperty(14.4);
 
@@ -139,12 +144,139 @@ public class Controller {
         pencarianText.fontProperty().addListener(event -> labelResize(pencarianText.getGraphic()));
         aboutText.fontProperty().addListener(event -> labelResize(aboutText.getGraphic()));
 
-        try {
-            content.getChildren().add(FXMLLoader.load(getClass().getResource("welcome.fxml")));
-            ((Pane) content.lookup("#welcomePane")).prefHeightProperty().bind(content.prefHeightProperty());
-            ((Pane) content.lookup("#welcomePane")).prefWidthProperty().bind(content.prefWidthProperty());
-        }catch (IOException e){
-            e.printStackTrace();
+        loadWelcome();
+    }
+
+    private void loadWelcome(){
+        content.getChildren().clear();
+
+        if(loggedName == null || loggedName.isEmpty()){
+           try {
+                content.getChildren().add(FXMLLoader.load(getClass().getResource("login.fxml")));
+                ((Pane)content.lookup("#loginPane")).prefHeightProperty().bind(content.prefHeightProperty());
+                ((Pane)content.lookup("#loginPane")).prefWidthProperty().bind(content.prefWidthProperty());
+
+                ((Button)content.lookup("#loginPane").lookup("#login")).setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        try {
+                            Alert alert = new Alert(Alert.AlertType.ERROR);
+                            alert.setTitle("Login Gagal");
+                            alert.setHeaderText(null);
+
+                            Connection conn = DriverManager.getConnection(("jdbc:" + Controller.dbms + "://" + Controller.address + ":" + Controller.port + "/" + Controller.database + "?verifyServerCertificate=false&useSSL=true"), Controller.user, Controller.pass);
+                            PreparedStatement statement = conn.prepareCall("SELECT  * FROM user WHERE username='" + ((TextField)content.lookup("#loginPane").lookup("#username")).getText() + "'");
+                            statement.execute();
+                            ResultSet result = statement.getResultSet();
+
+                            if(result.next()){
+                                if(!result.getString("password").equals(((PasswordField)content.lookup("#loginPane").lookup("#password")).getText())){
+                                    alert.setContentText("Password salah!");
+                                    alert.showAndWait();
+                                }
+                                else{
+                                    loggedName = ((TextField)content.lookup("#loginPane").lookup("#username")).getText();
+                                    loggedStatus = result.getString("status");
+
+                                    alert.setAlertType(Alert.AlertType.INFORMATION);
+                                    alert.setTitle("Login Berhasil");
+                                    alert.setContentText("Berhasil login sebagai " + Controller.loggedName + "!");
+                                    alert.showAndWait();
+
+                                    galeri.setDisable(false);
+                                    naskah.setDisable(false);
+                                    penelitian.setDisable(false);
+                                    permainan.setDisable(false);
+                                    pencarian.setDisable(false);
+                                    about.setDisable(false);
+
+                                    loadWelcome();
+                                    //timeline.play();
+                                }
+                            }
+                            else{
+                                alert.setContentText("Username yang dimasukkan tidak ditemukan!");
+                                alert.showAndWait();
+                            }
+
+                            conn.close();
+                        }catch (SQLException e){
+                            e.printStackTrace();
+                        }
+                    }
+                });
+
+                ((Button)content.lookup("#loginPane").lookup("#guest")).setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        content.getChildren().clear();
+
+                        try{
+                            content.getChildren().add(FXMLLoader.load(getClass().getResource("guest.fxml")));
+                            ((Pane)content.lookup("#guestPane")).prefHeightProperty().bind(content.prefHeightProperty());
+                            ((Pane)content.lookup("#guestPane")).prefWidthProperty().bind(content.prefWidthProperty());
+
+                            ((Button)content.lookup("#guestPane").lookup("#batal")).setOnMouseClicked(new EventHandler<MouseEvent>() {
+                                @Override
+                                public void handle(MouseEvent event) {
+                                    loadWelcome();
+                                }
+                            });
+
+                            ((Button)content.lookup("#guestPane").lookup("#masuk")).setOnMouseClicked(new EventHandler<MouseEvent>() {
+                                @Override
+                                public void handle(MouseEvent event) {
+                                    String lNama = ((TextField)content.lookup("#guestPane").lookup("#namaPane").lookup("#nama")).getText();
+                                    String lGender = ((RadioButton)content.lookup("#guestPane").lookup("#genderPane").lookup("#genderL")).isSelected() ? ((RadioButton)content.lookup("#guestPane").lookup("#genderPane").lookup("#genderL")).getUserData().toString() : ((RadioButton)content.lookup("#guestPane").lookup("#genderPane").lookup("#genderP")).getUserData().toString();
+                                    int lUmur = Integer.parseInt(((TextField)content.lookup("#guestPane").lookup("#umurPane").lookup("#umur")).getText());
+                                    String lAlamat = ((TextField)content.lookup("#guestPane").lookup("#alamatPane").lookup("#alamat")).getText();
+
+                                    try {
+                                        Connection conn = DriverManager.getConnection(("jdbc:" + Controller.dbms + "://" + Controller.address + ":" + Controller.port + "/" + Controller.database + "?verifyServerCertificate=false&useSSL=true"), Controller.user, Controller.pass);
+                                        PreparedStatement statement = conn.prepareCall("INSERT INTO log(nama,jenis_kelamin,umur,alamat,start) VALUES('" + lNama + "','" + lGender + "'," + lUmur + ",'" + lAlamat + "',NOW())");
+                                        int count = statement.executeUpdate();
+
+                                        if(count > 0){
+                                            loggedName = lNama;
+                                            loggedStatus = "user";
+
+                                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                            alert.setTitle("Berhasi");
+                                            alert.setHeaderText(null);
+                                            alert.setContentText("Data berhasil dimasukkan!");
+                                            alert.showAndWait();
+
+                                            galeri.setDisable(false);
+                                            naskah.setDisable(false);
+                                            penelitian.setDisable(false);
+                                            permainan.setDisable(false);
+                                            pencarian.setDisable(false);
+                                            about.setDisable(false);
+
+                                            loadWelcome();
+                                            //timeline.play();
+                                        }
+                                    }catch (SQLException e){
+                                        e.printStackTrace();
+                                    }
+                                }
+                            });
+                        }catch (IOException e){
+                            e.printStackTrace();
+                        }
+                    }
+                });
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+        else{
+            if(loggedStatus.equals("admin")){
+
+            }
+            else{
+
+            }
         }
     }
 
@@ -168,6 +300,28 @@ public class Controller {
         ((ImageView)graphic).setFitWidth(graphSize);
     }
 
+    private void logout(){
+        welcome.setDisable(true);
+        welcome.setStyle("-fx-background-color: FFD700");
+        galeri.setDisable(true);
+        galeri.setStyle("-fx-background-color: FFA500");
+        naskah.setDisable(true);
+        naskah.setStyle("-fx-background-color: FFA500");
+        penelitian.setDisable(true);
+        penelitian.setStyle("-fx-background-color: FFA500");
+        permainan.setDisable(true);
+        permainan.setStyle("-fx-background-color: FFA500");
+        pencarian.setDisable(true);
+        pencarian.setStyle("-fx-background-color: FFA500");
+        about.setDisable(true);
+        about.setStyle("-fx-background-color: FFA500");
+
+        loggedName = null;
+        loggedStatus = null;
+
+        loadWelcome();
+    }
+
     @FXML
     public void welcomeClicked(){
         welcome.setStyle("-fx-background-color: FFD700");
@@ -185,15 +339,7 @@ public class Controller {
         about.setStyle("-fx-background-color: FFA500");
         about.setDisable(false);
 
-        //Function that will change the pane's contents go below here
-        content.getChildren().clear();
-        try {
-            content.getChildren().add(FXMLLoader.load(getClass().getResource("welcome.fxml")));
-            ((Pane)content.lookup("#welcomePane")).prefHeightProperty().bind(content.prefHeightProperty());
-            ((Pane)content.lookup("#welcomePane")).prefWidthProperty().bind(content.prefWidthProperty());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        loadWelcome();
     }
 
     @FXML

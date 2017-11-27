@@ -63,6 +63,7 @@ public class FullScreenViewer {
             ((ImageView) watermark.getGraphic()).setPreserveRatio(true);
             ((ImageView) watermark.getGraphic()).setSmooth(true);
             watermark.setOpacity(0.5);
+            watermark.getGraphic().setOpacity(0.3);
 
             if(imageView.getImage().getWidth() > imageView.getImage().getHeight()) {
                 imageView.setFitWidth(Screen.getPrimary().getVisualBounds().getWidth() * 0.95);

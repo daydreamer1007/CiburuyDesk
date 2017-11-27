@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.chart.NumberAxis?>
+<Pane fx:id="guestPane" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.GuestController">
+    <children>
+        <Pane fx:id="namaPane">
+            <Label fx:id="namaLabel" text="Nama" textFill="WHITE">
+                <font>
+                    <Font name="System Bold" size="20"></Font>
+                </font>
+            </Label>
+            <TextField fx:id="nama" promptText="Nama"></TextField>
+        </Pane>
+        <Pane fx:id="genderPane">
+            <Label fx:id="genderLabel" text="Jenis Kelamin" textFill="WHITE">
+                <font>
+                    <Font name="System Bold" size="20"></Font>
+                </font>
+            </Label>
+            <fx:define>
+                <ToggleGroup fx:id="gender"></ToggleGroup>
+            </fx:define>
+            <RadioButton fx:id="genderL" userData="Laki-Laki" text="Laki-Laki" textFill="WHITE" toggleGroup="$gender" disable="true">
+                <font>
+                    <Font name="System Bold" size="20"></Font>
+                </font>
+            </RadioButton>
+            <RadioButton fx:id="genderP" userData="Perempuan" text="Perempuan" textFill="WHITE" toggleGroup="$gender" disable="true">
+                <font>
+                    <Font name="System Bold" size="20"></Font>
+                </font>
+            </RadioButton>
+        </Pane>
+        <Pane fx:id="umurPane">
+            <Label fx:id="umurLabel" text="Umur" textFill="WHITE">
+                <font>
+                    <Font name="System Bold" size="20"></Font>
+                </font>
+            </Label>
+            <TextField fx:id="umur" promptText="Umur" disable="true"></TextField>
+        </Pane>
+        <Pane fx:id="alamatPane">
+            <Label fx:id="alamatLabel" text="Alamat" textFill="WHITE">
+                <font>
+                    <Font name="System Bold" size="20"></Font>
+                </font>
+            </Label>
+            <TextField fx:id="alamat" promptText="Alamat" disable="true"></TextField>
+        </Pane>
+        <Button fx:id="batal" stylesheets="@style.css" text="Batal" textFill="WHITE"></Button>
+        <Button fx:id="masuk" stylesheets="@style.css" text="Masuk" textFill="WHITE" disable="true"></Button>
+    </children>
+</Pane>
