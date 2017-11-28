@@ -78,8 +78,6 @@ public class LoginController {
         guest.layoutXProperty().bind(username.layoutXProperty());
         guest.layoutYProperty().bind(login.layoutYProperty().add(login.prefHeightProperty()).add(15));
 
-        System.out.println(loginPane.getPrefHeight());
-
         username.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
@@ -107,6 +105,5 @@ public class LoginController {
                 }
             }
         });
-
     }
 }

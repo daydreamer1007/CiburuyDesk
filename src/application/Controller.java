@@ -20,7 +20,6 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.sql.*;
-import java.util.Date;
 import java.util.List;
 
 public class Controller {
@@ -275,7 +274,20 @@ public class Controller {
 
             }
             else{
+                try{
+                    content.getChildren().add(FXMLLoader.load(getClass().getResource("welcome.fxml")));
+                    ((Pane)content.lookup("#welcomePane")).prefHeightProperty().bind(content.prefHeightProperty());
+                    ((Pane)content.lookup("#welcomePane")).prefWidthProperty().bind(content.prefWidthProperty());
 
+                    ((Button)content.lookup("#welcomePane").lookup("#logout")).setOnMouseClicked(new EventHandler<MouseEvent>() {
+                        @Override
+                        public void handle(MouseEvent event) {
+                            logout();
+                        }
+                    });
+                }catch (IOException e){
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -369,6 +381,9 @@ public class Controller {
         }catch(IOException e){
             e.printStackTrace();
         }
+
+        timeline.stop();
+        timeline.play();
     }
 
     @FXML
@@ -398,6 +413,9 @@ public class Controller {
         }catch(IOException e){
             e.printStackTrace();
         }
+
+        timeline.stop();
+        timeline.play();
     }
 
     @FXML
@@ -419,6 +437,9 @@ public class Controller {
 
         //Function that will change the pane's contents go below here
         content.getChildren().clear();
+
+        timeline.stop();
+        timeline.play();
     }
 
     @FXML
@@ -440,6 +461,9 @@ public class Controller {
 
         //Function that will change the pane's contents go below here
         content.getChildren().clear();
+
+        timeline.stop();
+        timeline.play();
     }
 
     @FXML
@@ -461,6 +485,9 @@ public class Controller {
 
         //Function that will change the pane's contents go below here
         content.getChildren().clear();
+
+        timeline.stop();
+        timeline.play();
     }
 
     @FXML
@@ -482,6 +509,9 @@ public class Controller {
 
         //Function that will change the pane's contents go below here
         content.getChildren().clear();
+
+        timeline.stop();
+        timeline.play();
     }
 
 

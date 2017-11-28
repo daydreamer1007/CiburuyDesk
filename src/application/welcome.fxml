@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<Pane fx:id="welcomePane" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.welcomeController">
+    <children>
+        <BorderPane fx:id="welcome">
+
+        </BorderPane>
+        <Button fx:id="logout" stylesheets="@style.css" text="Keluar" textFill="WHITE"></Button>
+    </children>
+</Pane>
