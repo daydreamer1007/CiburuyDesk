@@ -2,8 +2,10 @@ package application;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -91,7 +93,7 @@ public class Controller {
     @FXML
     public void initialize(){
         timeline = new Timeline(
-            new KeyFrame(Duration.minutes(10.0), e -> logout())
+            new KeyFrame(Duration.minutes(1.0), e -> logout())
         );
 
         DoubleProperty titleX = new SimpleDoubleProperty(10.0);
@@ -190,7 +192,7 @@ public class Controller {
                                     about.setDisable(false);
 
                                     loadWelcome();
-                                    //timeline.play();
+                                    timeline.play();
                                 }
                             }
                             else{
@@ -253,8 +255,10 @@ public class Controller {
                                             about.setDisable(false);
 
                                             loadWelcome();
-                                            //timeline.play();
+                                            timeline.play();
                                         }
+
+                                        conn.close();
                                     }catch (SQLException e){
                                         e.printStackTrace();
                                     }
@@ -271,7 +275,20 @@ public class Controller {
         }
         else{
             if(loggedStatus.equals("admin")){
+                try {
+                    content.getChildren().add(FXMLLoader.load(getClass().getResource("admin.fxml")));
+                    ((Pane) content.lookup("#adminPane")).prefHeightProperty().bind(content.prefHeightProperty());
+                    ((Pane) content.lookup("#adminPane")).prefWidthProperty().bind(content.prefWidthProperty());
 
+                    ((Button)content.lookup("#adminPane").lookup("#logout")).setOnMouseClicked(new EventHandler<MouseEvent>() {
+                        @Override
+                        public void handle(MouseEvent event) {
+                            logout();
+                        }
+                    });
+                }catch (IOException e){
+                    e.printStackTrace();
+                }
             }
             else{
                 try{
@@ -313,6 +330,40 @@ public class Controller {
     }
 
     private void logout(){
+        boolean loggedOut = true;
+
+        if(loggedStatus.equals("user")){
+            try {
+                loggedOut = false;
+                Connection conn = DriverManager.getConnection(("jdbc:" + Controller.dbms + "://" + Controller.address + ":" + Controller.port + "/" + Controller.database + "?verifyServerCertificate=false&useSSL=true"), Controller.user, Controller.pass);
+                PreparedStatement statement = conn.prepareCall("UPDATE log SET end=NOW() WHERE end IS NULL ");
+
+                if (statement.executeUpdate() > 0) {
+                    loggedOut = true;
+                }
+
+                conn.close();
+            }
+            catch (SQLException e){
+                e.printStackTrace();
+            }
+        }
+
+        if(loggedOut) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Berhasi");
+            alert.setHeaderText(null);
+            alert.setContentText("Logout berhasil!");
+            if(timeline.getCurrentTime().equals(Duration.ZERO)) {
+                alert.showAndWait();
+            }
+
+            loggedName = null;
+            loggedStatus = null;
+
+            loadWelcome();
+        }
+
         welcome.setDisable(true);
         welcome.setStyle("-fx-background-color: FFD700");
         galeri.setDisable(true);
@@ -328,10 +379,7 @@ public class Controller {
         about.setDisable(true);
         about.setStyle("-fx-background-color: FFA500");
 
-        loggedName = null;
-        loggedStatus = null;
-
-        loadWelcome();
+        timeline.stop();
     }
 
     @FXML
@@ -352,6 +400,8 @@ public class Controller {
         about.setDisable(false);
 
         loadWelcome();
+        timeline.stop();
+        timeline.play();
     }
 
     @FXML

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane prefHeight="720.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AdminController" fx:id="adminPane">
+    <children>
+        <ComboBox fx:id="filter">
+        </ComboBox>
+        <TableView fx:id="tablelog">
+            <columns>
+                <TableColumn text="No" fx:id="cNo"></TableColumn>
+                <TableColumn text="Nama" fx:id="cNama"></TableColumn>
+                <TableColumn text="Jenis Kelamin" fx:id="cGender"></TableColumn>
+                <TableColumn text="Umur" fx:id="cUmur"></TableColumn>
+                <TableColumn text="Alamat" fx:id="cAlamat"></TableColumn>
+                <TableColumn text="Start Time" fx:id="cStart"></TableColumn>
+                <TableColumn text="End Time" fx:id="cEnd"></TableColumn>
+            </columns>
+        </TableView>
+        <Button fx:id="logout" stylesheets="@style.css" text="Keluar" textFill="WHITE"></Button>
+    </children>
+</Pane>

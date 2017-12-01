@@ -7,12 +7,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d26d7ef-0771-45a6-a7d3-92e21c8b4e00" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/application/welcome.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/application/welcomeController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/application/AdminController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/application/admin.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CiburuyDesk/application/Controller.class" afterPath="$PROJECT_DIR$/out/production/CiburuyDesk/application/Controller.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CiburuyDesk/application/Main.class" afterPath="$PROJECT_DIR$/out/production/CiburuyDesk/application/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/application/Controller.java" afterPath="$PROJECT_DIR$/src/application/Controller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/application/LoginController.java" afterPath="$PROJECT_DIR$/src/application/LoginController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/application/Main.java" afterPath="$PROJECT_DIR$/src/application/Main.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,33 +36,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="login.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/application/login.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="146" lean-forward="false" selection-start-line="20" selection-start-column="121" selection-end-line="20" selection-end-column="146" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FullScreenViewer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/application/FullScreenViewer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-476">
-              <caret line="65" column="36" lean-forward="false" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/application/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
+            <state relative-caret-position="1496">
               <caret line="107" column="5" lean-forward="false" selection-start-line="107" selection-start-column="5" selection-end-line="107" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -73,23 +51,37 @@
       <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/application/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-442">
-              <caret line="91" column="29" lean-forward="false" selection-start-line="91" selection-start-column="29" selection-end-line="91" selection-end-column="29" />
+            <state relative-caret-position="341">
+              <caret line="358" column="13" lean-forward="true" selection-start-line="352" selection-start-column="12" selection-end-line="358" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#9162#9163#0" expanded="true" />
-                <element signature="e#9247#9248#0" expanded="true" />
-                <element signature="e#13317#13318#0" expanded="true" />
-                <element signature="e#13381#13382#0" expanded="true" />
-                <marker date="1511837936403" expanded="true" signature="6111:6227" ph="SELECT * FRO... user" />
-                <marker date="1511837936403" expanded="true" signature="10756:10771" ph="INSERT INTO log... " />
-                <marker date="1511837936403" expanded="true" signature="10756:10818" ph="INSERT INTO log... " />
-                <marker date="1511837936403" expanded="true" signature="10756:10832" ph="INSERT INTO log... " />
-                <marker date="1511837936403" expanded="true" signature="10756:10834" ph="INSERT INTO log... " />
-                <marker date="1511837936403" expanded="true" signature="10756:10851" ph="INSERT INTO log... " />
-                <marker date="1511837936403" expanded="true" signature="10756:10866" ph="INSERT INTO log... " />
-                <marker date="1511837936403" expanded="true" signature="10756:10889" ph="INSERT INTO log... " />
-                <marker date="1511837936403" expanded="true" signature="10756:10891" ph="INSERT INTO log... " />
+                <element signature="e#13398#13399#0" expanded="true" />
+                <element signature="e#13462#13463#0" expanded="true" />
+                <element signature="e#14200#14201#0" expanded="true" />
+                <element signature="e#14264#14265#0" expanded="true" />
+                <marker date="1512116693922" expanded="true" signature="6179:6295" ph="SELECT * FRO... user" />
+                <marker date="1512116693922" expanded="true" signature="10822:10837" ph="INSERT INTO log... " />
+                <marker date="1512116693922" expanded="true" signature="10822:10884" ph="INSERT INTO log... " />
+                <marker date="1512116693922" expanded="true" signature="10822:10898" ph="INSERT INTO log... " />
+                <marker date="1512116693922" expanded="true" signature="10822:10900" ph="INSERT INTO log... " />
+                <marker date="1512116693922" expanded="true" signature="10822:10917" ph="INSERT INTO log... " />
+                <marker date="1512116693922" expanded="true" signature="10822:10932" ph="INSERT INTO log... " />
+                <marker date="1512116693922" expanded="true" signature="10822:10955" ph="INSERT INTO log... " />
+                <marker date="1512116693922" expanded="true" signature="10822:10957" ph="INSERT INTO log... " />
+                <marker date="1512116693922" expanded="true" signature="15576:15618" ph="UPDATE log S... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/application/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="478">
+              <caret line="41" column="36" lean-forward="false" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
+              <folding>
+                <marker date="1512117587138" expanded="true" signature="1416:1451" ph="SELECT * FRO... log" />
+                <marker date="1512117587138" expanded="true" signature="1520:1562" ph="UPDATE log S... " />
               </folding>
             </state>
           </provider>
@@ -98,7 +90,7 @@
       <file leaf-file-name="GaleriController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/application/GaleriController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-544">
+            <state relative-caret-position="17">
               <caret line="27" column="4" lean-forward="false" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -109,51 +101,60 @@
       </file>
       <file leaf-file-name="welcome.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/application/welcome.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="38" lean-forward="true" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
+            <state relative-caret-position="238">
+              <caret line="14" column="96" lean-forward="true" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="96" />
               <folding />
             </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="Galeri.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/application/Galeri.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="1" lean-forward="false" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+            <state relative-caret-position="170">
+              <caret line="10" column="7" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="10" selection-end-column="7" />
               <folding />
             </state>
           </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
         </entry>
       </file>
-      <file leaf-file-name="welcomeController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/application/welcomeController.java">
+      <file leaf-file-name="admin.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/application/admin.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="55" column="56" lean-forward="false" selection-start-line="55" selection-start-column="56" selection-end-line="55" selection-end-column="56" />
+            <state relative-caret-position="238">
+              <caret line="14" column="51" lean-forward="false" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdminController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/application/AdminController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="548">
+              <caret line="190" column="0" lean-forward="true" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <marker date="1512116501960" expanded="true" signature="7000:7017" ph="SELECT * FRO... log" />
+                <marker date="1512116501960" expanded="true" signature="7000:7026" ph="SELECT * FRO... log" />
+                <marker date="1512116501960" expanded="true" signature="7000:7037" ph="SELECT * FRO... log" />
+                <marker date="1512116501960" expanded="true" signature="7150:7198" ph="SELECT * FRO... log" />
+                <marker date="1512116501960" expanded="true" signature="7150:7218" ph="SELECT * FRO... log" />
+                <marker date="1512116501960" expanded="true" signature="7332:7409" ph="SELECT * FRO... log" />
+                <marker date="1512116501960" expanded="true" signature="7332:7429" ph="SELECT * FRO... log" />
+                <marker date="1512116501960" expanded="true" signature="7511:7614" ph="SELECT * FRO... log" />
+                <marker date="1512116501960" expanded="true" signature="7511:7634" ph="SELECT * FRO... log" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="guest.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/application/guest.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="952">
-              <caret line="56" column="84" lean-forward="false" selection-start-line="56" selection-start-column="84" selection-end-line="56" selection-end-column="84" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -161,8 +162,20 @@
       <file leaf-file-name="GuestController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/application/GuestController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1784">
-              <caret line="183" column="5" lean-forward="true" selection-start-line="170" selection-start-column="4" selection-end-line="183" selection-end-column="5" />
+            <state relative-caret-position="1942">
+              <caret line="149" column="0" lean-forward="true" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="welcomeController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/application/welcomeController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="367">
+              <caret line="40" column="74" lean-forward="true" selection-start-line="40" selection-start-column="74" selection-end-line="40" selection-end-column="74" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -201,6 +214,7 @@
       <find>bindWid</find>
       <find>!=</find>
       <find>welcomePane</find>
+      <find>timeline</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -223,7 +237,6 @@
         <option value="$PROJECT_DIR$/src/application/Naskah.fxml" />
         <option value="$PROJECT_DIR$/src/application/NaskahController.java" />
         <option value="$PROJECT_DIR$/src/application/MainWindow.fxml" />
-        <option value="$PROJECT_DIR$/src/application/Main.java" />
         <option value="$PROJECT_DIR$/src/application/style.css" />
         <option value="$PROJECT_DIR$/src/application/WelcomeController.java" />
         <option value="$PROJECT_DIR$/src/application/FullScreenViewer.java" />
@@ -232,8 +245,11 @@
         <option value="$PROJECT_DIR$/src/application/welcome.fxml" />
         <option value="$PROJECT_DIR$/src/application/LoginController.java" />
         <option value="$PROJECT_DIR$/src/application/GuestController.java" />
-        <option value="$PROJECT_DIR$/src/application/Controller.java" />
         <option value="$PROJECT_DIR$/src/application/welcomeController.java" />
+        <option value="$PROJECT_DIR$/src/application/admin.fxml" />
+        <option value="$PROJECT_DIR$/src/application/AdminController.java" />
+        <option value="$PROJECT_DIR$/src/application/Controller.java" />
+        <option value="$PROJECT_DIR$/src/application/Main.java" />
       </list>
     </option>
   </component>
@@ -264,10 +280,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -315,6 +330,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -329,6 +345,7 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/Ibrahim Yahya/IdeaProjects/Ciburuy Desk/src/application/AdminController.java" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -509,7 +526,8 @@
       <workItem from="1511318397471" duration="379000" />
       <workItem from="1511319312579" duration="38000" />
       <workItem from="1511319900306" duration="7903000" />
-      <workItem from="1511790265197" duration="20028000" />
+      <workItem from="1511790265197" duration="20656000" />
+      <workItem from="1512014942012" duration="15842000" />
     </task>
     <task id="LOCAL-00001" summary="added function to change pane's content (just for welcome)">
       <created>1508234375355</created>
@@ -588,36 +606,43 @@
       <option name="project" value="LOCAL" />
       <updated>1511805566256</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Added welcome screen for guest, with logout button">
+      <created>1511838005139</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1511838005139</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="129380000" />
+    <option name="totallyTimeSpent" value="145850000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32738718" sideWeight="0.446875" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32738718" sideWeight="0.43645832" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32781458" sideWeight="0.5442708" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32633787" sideWeight="0.55052084" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32633787" sideWeight="0.44947916" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32633787" sideWeight="0.45572916" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32948583" sideWeight="0.49791667" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18489583" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18489583" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39979014" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -644,53 +669,33 @@
     <MESSAGE value="Added jdbc library (for mysql connection), not used yet." />
     <MESSAGE value="changed all title and logo, added login function (still no indicator other than a popup dialog)" />
     <MESSAGE value="Added login option for guest, functional, still no welcome screen (with logout option) yet" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added login option for guest, functional, still no welcome screen (with logout option) yet" />
+    <MESSAGE value="Added welcome screen for guest, with logout button" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added welcome screen for guest, with logout button" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/application/login.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="46" lean-forward="false" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/MainWindow.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="26" lean-forward="true" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/application/Naskah.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/login.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/login.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="38" lean-forward="false" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/application/Main.java">
@@ -707,19 +712,20 @@
           <caret line="79" column="94" lean-forward="false" selection-start-line="79" selection-start-column="94" selection-end-line="79" selection-end-column="94" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#9162#9163#0" expanded="true" />
-            <element signature="e#9247#9248#0" expanded="true" />
-            <element signature="e#13317#13318#0" expanded="true" />
-            <element signature="e#13381#13382#0" expanded="true" />
-            <marker date="1511837936403" expanded="true" signature="6111:6227" ph="SELECT * FRO... user" />
-            <marker date="1511837936403" expanded="true" signature="10756:10771" ph="INSERT INTO log... " />
-            <marker date="1511837936403" expanded="true" signature="10756:10818" ph="INSERT INTO log... " />
-            <marker date="1511837936403" expanded="true" signature="10756:10832" ph="INSERT INTO log... " />
-            <marker date="1511837936403" expanded="true" signature="10756:10834" ph="INSERT INTO log... " />
-            <marker date="1511837936403" expanded="true" signature="10756:10851" ph="INSERT INTO log... " />
-            <marker date="1511837936403" expanded="true" signature="10756:10866" ph="INSERT INTO log... " />
-            <marker date="1511837936403" expanded="true" signature="10756:10889" ph="INSERT INTO log... " />
-            <marker date="1511837936403" expanded="true" signature="10756:10891" ph="INSERT INTO log... " />
+            <element signature="e#13398#13399#0" expanded="true" />
+            <element signature="e#13462#13463#0" expanded="true" />
+            <element signature="e#14200#14201#0" expanded="true" />
+            <element signature="e#14264#14265#0" expanded="true" />
+            <marker date="1512116693922" expanded="true" signature="6179:6295" ph="SELECT * FRO... user" />
+            <marker date="1512116693922" expanded="true" signature="10822:10837" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="10822:10884" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="10822:10898" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="10822:10900" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="10822:10917" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="10822:10932" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="10822:10955" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="10822:10957" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="15576:15618" ph="UPDATE log S... " />
           </folding>
         </state>
       </provider>
@@ -729,30 +735,30 @@
         <state relative-caret-position="289">
           <caret line="17" column="27" lean-forward="false" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/application/MainWindow.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/login.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/login.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="24" column="12" lean-forward="false" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/application/Main.java">
@@ -769,42 +775,43 @@
           <caret line="186" column="0" lean-forward="true" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#9162#9163#0" expanded="true" />
-            <element signature="e#9247#9248#0" expanded="true" />
-            <element signature="e#13317#13318#0" expanded="true" />
-            <element signature="e#13381#13382#0" expanded="true" />
-            <marker date="1511837936403" expanded="true" signature="6111:6227" ph="SELECT * FRO... user" />
-            <marker date="1511837936403" expanded="true" signature="10756:10771" ph="INSERT INTO log... " />
-            <marker date="1511837936403" expanded="true" signature="10756:10818" ph="INSERT INTO log... " />
-            <marker date="1511837936403" expanded="true" signature="10756:10832" ph="INSERT INTO log... " />
-            <marker date="1511837936403" expanded="true" signature="10756:10834" ph="INSERT INTO log... " />
-            <marker date="1511837936403" expanded="true" signature="10756:10851" ph="INSERT INTO log... " />
-            <marker date="1511837936403" expanded="true" signature="10756:10866" ph="INSERT INTO log... " />
-            <marker date="1511837936403" expanded="true" signature="10756:10889" ph="INSERT INTO log... " />
-            <marker date="1511837936403" expanded="true" signature="10756:10891" ph="INSERT INTO log... " />
+            <element signature="e#13398#13399#0" expanded="true" />
+            <element signature="e#13462#13463#0" expanded="true" />
+            <element signature="e#14200#14201#0" expanded="true" />
+            <element signature="e#14264#14265#0" expanded="true" />
+            <marker date="1512116693922" expanded="true" signature="6179:6295" ph="SELECT * FRO... user" />
+            <marker date="1512116693922" expanded="true" signature="10822:10837" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="10822:10884" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="10822:10898" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="10822:10900" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="10822:10917" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="10822:10932" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="10822:10955" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="10822:10957" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="15576:15618" ph="UPDATE log S... " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/application/MainWindow.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2006">
           <caret line="118" column="44" lean-forward="false" selection-start-line="118" selection-start-column="44" selection-end-line="118" selection-end-column="44" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/login.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/login.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="24" column="12" lean-forward="false" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/application/Main.java">
@@ -821,31 +828,32 @@
           <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#9162#9163#0" expanded="true" />
-            <element signature="e#9247#9248#0" expanded="true" />
-            <element signature="e#13317#13318#0" expanded="true" />
-            <element signature="e#13381#13382#0" expanded="true" />
-            <marker date="1511837936403" expanded="true" signature="6111:6227" ph="SELECT * FRO... user" />
-            <marker date="1511837936403" expanded="true" signature="10756:10771" ph="INSERT INTO log... " />
-            <marker date="1511837936403" expanded="true" signature="10756:10818" ph="INSERT INTO log... " />
-            <marker date="1511837936403" expanded="true" signature="10756:10832" ph="INSERT INTO log... " />
-            <marker date="1511837936403" expanded="true" signature="10756:10834" ph="INSERT INTO log... " />
-            <marker date="1511837936403" expanded="true" signature="10756:10851" ph="INSERT INTO log... " />
-            <marker date="1511837936403" expanded="true" signature="10756:10866" ph="INSERT INTO log... " />
-            <marker date="1511837936403" expanded="true" signature="10756:10889" ph="INSERT INTO log... " />
-            <marker date="1511837936403" expanded="true" signature="10756:10891" ph="INSERT INTO log... " />
+            <element signature="e#13398#13399#0" expanded="true" />
+            <element signature="e#13462#13463#0" expanded="true" />
+            <element signature="e#14200#14201#0" expanded="true" />
+            <element signature="e#14264#14265#0" expanded="true" />
+            <marker date="1512116693922" expanded="true" signature="6179:6295" ph="SELECT * FRO... user" />
+            <marker date="1512116693922" expanded="true" signature="10822:10837" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="10822:10884" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="10822:10898" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="10822:10900" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="10822:10917" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="10822:10932" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="10822:10955" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="10822:10957" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="15576:15618" ph="UPDATE log S... " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/application/MainWindow.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/application/Main.java">
@@ -861,51 +869,52 @@
           <caret line="28" column="31" lean-forward="false" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#9162#9163#0" expanded="true" />
-            <element signature="e#9247#9248#0" expanded="true" />
-            <element signature="e#13317#13318#0" expanded="true" />
-            <element signature="e#13381#13382#0" expanded="true" />
-            <marker date="1511837936403" expanded="true" signature="6111:6227" ph="SELECT * FRO... user" />
-            <marker date="1511837936403" expanded="true" signature="10756:10771" ph="INSERT INTO log... " />
-            <marker date="1511837936403" expanded="true" signature="10756:10818" ph="INSERT INTO log... " />
-            <marker date="1511837936403" expanded="true" signature="10756:10832" ph="INSERT INTO log... " />
-            <marker date="1511837936403" expanded="true" signature="10756:10834" ph="INSERT INTO log... " />
-            <marker date="1511837936403" expanded="true" signature="10756:10851" ph="INSERT INTO log... " />
-            <marker date="1511837936403" expanded="true" signature="10756:10866" ph="INSERT INTO log... " />
-            <marker date="1511837936403" expanded="true" signature="10756:10889" ph="INSERT INTO log... " />
-            <marker date="1511837936403" expanded="true" signature="10756:10891" ph="INSERT INTO log... " />
+            <element signature="e#13398#13399#0" expanded="true" />
+            <element signature="e#13462#13463#0" expanded="true" />
+            <element signature="e#14200#14201#0" expanded="true" />
+            <element signature="e#14264#14265#0" expanded="true" />
+            <marker date="1512116693922" expanded="true" signature="6179:6295" ph="SELECT * FRO... user" />
+            <marker date="1512116693922" expanded="true" signature="10822:10837" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="10822:10884" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="10822:10898" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="10822:10900" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="10822:10917" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="10822:10932" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="10822:10955" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="10822:10957" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="15576:15618" ph="UPDATE log S... " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/application/MainWindow.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="2125">
           <caret line="125" column="10" lean-forward="false" selection-start-line="125" selection-start-column="10" selection-end-line="125" selection-end-column="10" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/MainWindow.fxml">
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/MainWindow.fxml">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="45" lean-forward="false" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/MainWindow.fxml">
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/MainWindow.fxml">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/application/welcomeContent.java" />
@@ -968,29 +977,20 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/application/Naskah.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="182" lean-forward="false" selection-start-line="4" selection-start-column="182" selection-end-line="4" selection-end-column="182" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
-        </state>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/application/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="35" lean-forward="false" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -999,87 +999,55 @@
         <state relative-caret-position="340">
           <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/application/MainWindow.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1190">
           <caret line="17" column="68" lean-forward="false" selection-start-line="17" selection-start-column="68" selection-end-line="17" selection-end-column="68" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/guest.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/guest.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="952">
           <caret line="56" column="84" lean-forward="false" selection-start-line="56" selection-start-column="84" selection-end-line="56" selection-end-column="84" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/login.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/login.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="20" column="146" lean-forward="false" selection-start-line="20" selection-start-column="121" selection-end-line="20" selection-end-column="146" />
           <folding />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/application/FullScreenViewer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-476">
+        <state relative-caret-position="17">
           <caret line="65" column="36" lean-forward="false" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/Galeri.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="1" lean-forward="false" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/welcome.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="38" lean-forward="true" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/GaleriController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-544">
-          <caret line="27" column="4" lean-forward="false" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/application/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
+        <state relative-caret-position="1496">
           <caret line="107" column="5" lean-forward="false" selection-start-line="107" selection-start-column="5" selection-end-line="107" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1087,45 +1055,119 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/Galeri.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="7" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="10" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/application/GuestController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1784">
-          <caret line="183" column="5" lean-forward="true" selection-start-line="170" selection-start-column="4" selection-end-line="183" selection-end-column="5" />
+        <state relative-caret-position="1942">
+          <caret line="149" column="0" lean-forward="true" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/welcome.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="96" lean-forward="true" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="96" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/welcomeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="40" column="74" lean-forward="true" selection-start-line="40" selection-start-column="74" selection-end-line="40" selection-end-column="74" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/GaleriController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="27" column="4" lean-forward="false" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/admin.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="51" lean-forward="false" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/AdminController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="548">
+          <caret line="190" column="0" lean-forward="true" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1512116501960" expanded="true" signature="7000:7017" ph="SELECT * FRO... log" />
+            <marker date="1512116501960" expanded="true" signature="7000:7026" ph="SELECT * FRO... log" />
+            <marker date="1512116501960" expanded="true" signature="7000:7037" ph="SELECT * FRO... log" />
+            <marker date="1512116501960" expanded="true" signature="7150:7198" ph="SELECT * FRO... log" />
+            <marker date="1512116501960" expanded="true" signature="7150:7218" ph="SELECT * FRO... log" />
+            <marker date="1512116501960" expanded="true" signature="7332:7409" ph="SELECT * FRO... log" />
+            <marker date="1512116501960" expanded="true" signature="7332:7429" ph="SELECT * FRO... log" />
+            <marker date="1512116501960" expanded="true" signature="7511:7614" ph="SELECT * FRO... log" />
+            <marker date="1512116501960" expanded="true" signature="7511:7634" ph="SELECT * FRO... log" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/application/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-442">
-          <caret line="91" column="29" lean-forward="false" selection-start-line="91" selection-start-column="29" selection-end-line="91" selection-end-column="29" />
+        <state relative-caret-position="341">
+          <caret line="358" column="13" lean-forward="true" selection-start-line="352" selection-start-column="12" selection-end-line="358" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#9162#9163#0" expanded="true" />
-            <element signature="e#9247#9248#0" expanded="true" />
-            <element signature="e#13317#13318#0" expanded="true" />
-            <element signature="e#13381#13382#0" expanded="true" />
-            <marker date="1511837936403" expanded="true" signature="6111:6227" ph="SELECT * FRO... user" />
-            <marker date="1511837936403" expanded="true" signature="10756:10771" ph="INSERT INTO log... " />
-            <marker date="1511837936403" expanded="true" signature="10756:10818" ph="INSERT INTO log... " />
-            <marker date="1511837936403" expanded="true" signature="10756:10832" ph="INSERT INTO log... " />
-            <marker date="1511837936403" expanded="true" signature="10756:10834" ph="INSERT INTO log... " />
-            <marker date="1511837936403" expanded="true" signature="10756:10851" ph="INSERT INTO log... " />
-            <marker date="1511837936403" expanded="true" signature="10756:10866" ph="INSERT INTO log... " />
-            <marker date="1511837936403" expanded="true" signature="10756:10889" ph="INSERT INTO log... " />
-            <marker date="1511837936403" expanded="true" signature="10756:10891" ph="INSERT INTO log... " />
+            <element signature="e#13398#13399#0" expanded="true" />
+            <element signature="e#13462#13463#0" expanded="true" />
+            <element signature="e#14200#14201#0" expanded="true" />
+            <element signature="e#14264#14265#0" expanded="true" />
+            <marker date="1512116693922" expanded="true" signature="6179:6295" ph="SELECT * FRO... user" />
+            <marker date="1512116693922" expanded="true" signature="10822:10837" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="10822:10884" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="10822:10898" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="10822:10900" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="10822:10917" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="10822:10932" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="10822:10955" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="10822:10957" ph="INSERT INTO log... " />
+            <marker date="1512116693922" expanded="true" signature="15576:15618" ph="UPDATE log S... " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/welcomeController.java">
+    <entry file="file://$PROJECT_DIR$/src/application/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="55" column="56" lean-forward="false" selection-start-line="55" selection-start-column="56" selection-end-line="55" selection-end-column="56" />
+        <state relative-caret-position="478">
+          <caret line="41" column="36" lean-forward="false" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1512117587138" expanded="true" signature="1416:1451" ph="SELECT * FRO... log" />
+            <marker date="1512117587138" expanded="true" signature="1520:1562" ph="UPDATE log S... " />
           </folding>
         </state>
       </provider>
